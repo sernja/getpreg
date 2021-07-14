@@ -1,4 +1,4 @@
-name: getpreg
+name: getpregv2
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -24,7 +24,6 @@ dependencies:
   adobe_xd: ^2.0.0+1
   flutter:
     sdk: flutter
-  flutter_automation: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -48,51 +47,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/2.0x/doctor.png
-    - assets/images/2.0x/graduate-cap.png
-    - assets/images/2.0x/like.png
-    - assets/images/2.0x/logo.png
-    - assets/images/2.0x/map_logo.png
-    - assets/images/2.0x/page_view1.png
-    - assets/images/2.0x/page_view2.png
-    - assets/images/2.0x/page_view3.png
-    - assets/images/2.0x/placeholder1.png
-    - assets/images/2.0x/placeholder2.png
-    - assets/images/2.0x/profile_doc.jpg
-    - assets/images/2.0x/sign.png
-    - assets/images/2.0x/star.png
-
-    - assets/images/3.0x/doctor.png
-    - assets/images/3.0x/graduate-cap.png
-    - assets/images/3.0x/like.png
-    - assets/images/3.0x/logo.png
-    - assets/images/3.0x/map_logo.png
-    - assets/images/3.0x/page_view1.png
-    - assets/images/3.0x/page_view2.png
-    - assets/images/3.0x/page_view3.png
-    - assets/images/3.0x/placeholder1.png
-    - assets/images/3.0x/placeholder2.png
-    - assets/images/3.0x/profile_doc.jpg
-    - assets/images/3.0x/sign.png
-    - assets/images/3.0x/star.png
-
-    - assets/images/bg.png
-    - assets/images/doctor.png
-    - assets/images/graduate-cap.png
-    - assets/images/heart.png
-    - assets/images/like.png
-    - assets/images/logo.png
-    - assets/images/map_logo.png
-    - assets/images/placeholder.png
-    - assets/images/page_view1.png
-    - assets/images/page_view2.png
-    - assets/images/page_view3.png
-    - assets/images/placeholder1.png
-    - assets/images/placeholder2.png
-    - assets/images/profile_doc.jpg
-    - assets/images/sign.png
-    - assets/images/star.png
-    - assets/images/Blue and Yellow Laptop Start-up Business Facebook Cover.png
+    - assets/images/
+  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -105,18 +61,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-      - family: FC Minimal
-        fonts:
-          - asset: assets/fonts/Fc-Minimal-Bold.ttf
-          - asset: assets/fonts/Fc-Minimal-Regular.ttf
-      - family: Lato
-        fonts:
-          - asset: assets/fonts/Lato-Black.ttf
-          - asset: assets/fonts/Lato-Bold.ttf
-          - asset: assets/fonts/Lato-Light.ttf
-          - asset: assets/fonts/Lato-Regular.ttf
-          - asset: assets/fonts/Lato-Thin.ttf
+  # fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
