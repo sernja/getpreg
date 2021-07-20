@@ -1,10 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:getpregv2/screen/StartScreen2.dart';
 
 import '../widgets/slide_item.dart';
 import '../model/slide.dart';
 import '../widgets/slide_dots.dart';
+import 'Signin.dart';
+import 'StartScreen2.dart';
 // import '../screens/login_screen.dart';
 // import '../screens/signup_screen.dart';
 
@@ -56,16 +59,33 @@ class _GettingStartedScreenState extends State<StartScreen> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
+              Container(
+                alignment: AlignmentDirectional.topEnd,
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(top: 30, left: 0, right: 0, bottom: 0),
+                  child: Image.asset(
+                    "assets/images/logo.png",
+                    width: 44.0,
+                    height: 48.0,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
               Expanded(
                 child: Stack(
                   alignment: AlignmentDirectional.bottomCenter,
                   children: <Widget>[
-                    PageView.builder(
-                      scrollDirection: Axis.horizontal,
-                      controller: _pageController,
-                      onPageChanged: _onPageChanged,
-                      itemCount: slideList.length,
-                      itemBuilder: (ctx, i) => SlideItem(i),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: 0, left: 0, right: 0, bottom: 50),
+                      child: PageView.builder(
+                        scrollDirection: Axis.horizontal,
+                        controller: _pageController,
+                        onPageChanged: _onPageChanged,
+                        itemCount: 3,
+                        itemBuilder: (ctx, i) => SlideItem(i),
+                      ),
                     ),
                     Stack(
                       alignment: AlignmentDirectional.topStart,
@@ -73,13 +93,19 @@ class _GettingStartedScreenState extends State<StartScreen> {
                         Container(
                           margin: const EdgeInsets.only(bottom: 0),
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Expanded(
-                                flex: 2,
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 0, left: 0, right: 0, bottom: 0),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: 0, left: 0, right: 0, bottom: 5),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                StartScreen2()));
+                                  },
                                   child: Text(
                                     'ข้าม',
                                     style: TextStyle(
@@ -94,85 +120,39 @@ class _GettingStartedScreenState extends State<StartScreen> {
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                flex: 3,
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 8, left: 8.5, right: 0, bottom: 0),
-                                  child: Row(
-                                    children: <Widget>[
-                                      for (int i = 0; i < slideList.length; i++)
-                                        if (i == _currentPage)
-                                          SlideDots(true)
-                                        else
-                                          SlideDots(false),
-                                    ],
-                                  ),
-                                ),
-                              ),
                               Padding(
                                 padding: EdgeInsets.only(
-                                    top: 5, left: 0, right: 0, bottom: 0),
-                                child: Text(
-                                  'ถัดไป',
-                                  style: TextStyle(
-                                    fontFamily: 'FC Minimal',
-                                    fontSize: 20,
-                                    color: const Color(0xff283c7c),
-                                    height: 1.1176470588235294,
-                                  ),
+                                    top: 0, left: 108, right: 0, bottom: 0),
+                                child: Row(
+                                  children: <Widget>[
+                                    for (int i = 0; i < 3; i++)
+                                      if (i == _currentPage)
+                                        SlideDots(true)
+                                      else
+                                        SlideDots(false),
+                                  ],
                                 ),
                               ),
+                              // Padding(
+                                // padding:
+                                    // EdgeInsets.only(top: 0, left: 90, right: 0),
+                                // child: GestureDetector(
+                                //   onTap: () {
+                                //   },
+                                // )
+                                // child: Text(
+                                //   'ถัดไป',
+                                //   style: TextStyle(
+                                //     fontFamily: 'FC Minimal',
+                                //     fontSize: 20,
+                                //     color: const Color(0xff283c7c),
+                                //     height: 1.1176470588235294,
+                                //   ),
+                                //   textAlign: TextAlign.right,
+                                // ),
+                              // ),
                             ],
                           ),
-
-                          // child: Row(
-                          //   mainAxisSize: MainAxisSize.min,
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   children: <Widget>[
-                          //     for (int i = 0; i < slideList.length; i++)
-                          //       if (i == _currentPage)
-                          //         SlideDots(true)
-                          //       else
-                          //         SlideDots(false),
-                          //     Align(
-                          //       alignment: Alignment.bottomLeft,
-                          //       child: Container(
-                          //         margin: EdgeInsets.only(left: 20, top: 20.0),
-                          //         child: Text(
-                          //           'ข้าม',
-                          //           style: TextStyle(
-                          //             fontFamily: 'FC Minimal',
-                          //             fontSize: 17,
-                          //             color: const Color(0x80111111),
-                          //             height: 1.1176470588235294,
-                          //           ),
-                          //           textHeightBehavior: TextHeightBehavior(
-                          //               applyHeightToFirstAscent: false),
-                          //           textAlign: TextAlign.left,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //     Align(
-                          //       alignment: Alignment.bottomRight,
-                          //       child: Container(
-                          //         margin: EdgeInsets.only(left: 20, top: 20.0),
-                          //         child: Text(
-                          //           'ถัดไป',
-                          //           style: TextStyle(
-                          //             fontFamily: 'FC Minimal',
-                          //             fontSize: 17,
-                          //             color: const Color(0xff283c7c),
-                          //             height: 1.1176470588235294,
-                          //           ),
-                          //           textHeightBehavior: TextHeightBehavior(
-                          //               applyHeightToFirstAscent: false),
-                          //           textAlign: TextAlign.right,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
                         ),
                       ],
                     )

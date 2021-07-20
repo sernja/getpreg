@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
 class Slide {
   final String imageUrl;
@@ -20,7 +20,7 @@ final slideList = [
   ),
   Slide(
     imageUrl: 'assets/images/page_view1.png',
-    title: 'หรือเลือกคุณมอ\nจากความต้องการของคุณ',
+    title: 'หรือเลือกคุณหมอ\nจากความต้องการของคุณ',
     description: 'Sorting and filltering',
   ),
   Slide(
@@ -28,4 +28,8 @@ final slideList = [
     title: 'นัด meeting\nกับคุณหมอที่คุณเลือก',
     description: 'เลือกวันและเวลาจากตารางเวลา',
   ),
+  Slide(
+      imageUrl: 'assets/images/page_view3.png',
+      title: 'วางแผนการรักษากับ GETPREG',
+      description: 'ขอขอบคุณที่ไว้วางใจใหเ GETPREG')
 ];
