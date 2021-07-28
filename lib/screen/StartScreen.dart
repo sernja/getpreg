@@ -133,24 +133,6 @@ class _GettingStartedScreenState extends State<StartScreen> {
                                   ],
                                 ),
                               ),
-                              // Padding(
-                                // padding:
-                                    // EdgeInsets.only(top: 0, left: 90, right: 0),
-                                // child: GestureDetector(
-                                //   onTap: () {
-                                //   },
-                                // )
-                                // child: Text(
-                                //   'ถัดไป',
-                                //   style: TextStyle(
-                                //     fontFamily: 'FC Minimal',
-                                //     fontSize: 20,
-                                //     color: const Color(0xff283c7c),
-                                //     height: 1.1176470588235294,
-                                //   ),
-                                //   textAlign: TextAlign.right,
-                                // ),
-                              // ),
                             ],
                           ),
                         ),

@@ -77,23 +77,6 @@ class _GettingStartedScreenState extends State<StartScreen2> {
                                   ),
                                 ),
                               ),
-                              // Padding(
-                              //   padding: EdgeInsets.only(
-                              //       top: 0, left: 0, bottom: 0),
-                              //   child: Text(
-                              //     'เริ่มกัน',
-                              //     style: TextStyle(
-                              //       fontFamily: 'FC Minimal',
-                              //       fontSize: 20,
-                              //       color: const Color(0xff283c7c),
-                              //       fontWeight: FontWeight.w700,
-                              //       height: 1.1176470588235294,
-                              //     ),
-                              //     textHeightBehavior: TextHeightBehavior(
-                              //         applyHeightToFirstAscent: false),
-                              //     textAlign: TextAlign.center,
-                              //   ),
-                              // )
                             ],
                           ),
                         ),
