@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getpregv2/screen/SignUp.dart';
 import 'package:getpregv2/screen/StartScreen.dart';
-import 'package:getpregv2/screen/XDScreen1.dart';
 
 class Signin extends StatelessWidget {
   @override
@@ -39,15 +38,15 @@ class Signin extends StatelessWidget {
                 style: TextStyle(fontSize: 18, color: Colors.black54),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: const Color(0xFFFFFFFF).withOpacity(0),
                   hintText: 'Email',
                   contentPadding: const EdgeInsets.all(15),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+                  // focusedBorder: OutlineInputBorder(
+                  //   borderSide: BorderSide(color: Colors.white),
+                  //   borderRadius: BorderRadius.circular(5),
+                  // ),
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+                    borderSide: BorderSide(color: Colors.black54),
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
@@ -60,15 +59,15 @@ class Signin extends StatelessWidget {
                 style: TextStyle(fontSize: 18, color: Colors.black54),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: const Color(0xFFFFFFFF).withOpacity(0),
                   hintText: 'รหัสผ่าน',
                   contentPadding: const EdgeInsets.all(15),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+                  // focusedBorder: OutlineInputBorder(
+                  //   borderSide: BorderSide(color: Colors.black),
+                  //   borderRadius: BorderRadius.circular(5),
+                  // ),
                   enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+                    borderSide: BorderSide(color: Colors.black54),
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
