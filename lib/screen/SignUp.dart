@@ -11,7 +11,7 @@ class _SignUp extends State<SignUp> {
     bool isChecked = false;
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(10),
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
@@ -33,10 +33,12 @@ class _SignUp extends State<SignUp> {
                   height: 87,
                   width: 80,
                 ),
-                SizedBox(height: 5),
+                SizedBox(
+                  height: 5,
+                ),
                 Container(
-                  width: 120,
-                  height: MediaQuery.of(context).size.width / 0.9,
+                  // width: 120,
+                  // height: MediaQuery.of(context).size.width / 0.9,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/bg_withe.png"),
@@ -56,7 +58,7 @@ class _SignUp extends State<SignUp> {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 1),
                       TextField(
                         obscureText: true,
                         style: TextStyle(fontSize: 18, color: Colors.black54),
@@ -75,7 +77,7 @@ class _SignUp extends State<SignUp> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 1),
                       TextField(
                         obscureText: true,
                         style: TextStyle(fontSize: 18, color: Colors.black54),
@@ -90,7 +92,7 @@ class _SignUp extends State<SignUp> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 1),
                       TextField(
                         obscureText: true,
                         style: TextStyle(fontSize: 18, color: Colors.black54),
@@ -105,7 +107,7 @@ class _SignUp extends State<SignUp> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 1),
                       TextField(
                         obscureText: true,
                         style: TextStyle(fontSize: 18, color: Colors.black54),
@@ -120,7 +122,7 @@ class _SignUp extends State<SignUp> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 1),
                       Row(
                         children: [
                           Checkbox(
@@ -176,84 +178,87 @@ class _SignUp extends State<SignUp> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                //navigator to login with facebook
-                                builder: (context) => StartScreen()));
-                      },
-                      child: Image.asset(
-                        'assets/images/google.png',
-                        height: 55,
-                        width: 55,
-                        fit: BoxFit.fitHeight,
-                      ),
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    //navigator to login with facebook
+                                    builder: (context) => StartScreen()));
+                          },
+                          child: Image.asset(
+                            'assets/images/google.png',
+                            height: 55,
+                            width: 55,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    //navigator to login with facebook
+                                    builder: (context) => StartScreen()));
+                          },
+                          child: Image.asset(
+                            'assets/images/facebook.png',
+                            height: 55,
+                            width: 55,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
-                      width: 30,
+                      height: 10,
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                //navigator to login with facebook
-                                builder: (context) => StartScreen()));
-                      },
-                      child: Image.asset(
-                        'assets/images/facebook.png',
-                        height: 55,
-                        width: 55,
-                        fit: BoxFit.fitHeight,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'มีบัญชีผู้ใช้แล้ว? ',
-                      style: TextStyle(
-                        fontFamily: 'FC Minimal',
-                        fontSize: 17,
-                        color: const Color(0xffffffff),
-                      ),
-                      textHeightBehavior:
-                          TextHeightBehavior(applyHeightToFirstAscent: false),
-                      textAlign: TextAlign.center,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                //navigator to login with facebook
-                                builder: (context) => SignUp()));
-                      },
-                      child: Text(
-                        'เข้าสู่ระบบ',
-                        style: TextStyle(
-                          fontFamily: 'FC Minimal',
-                          fontSize: 17,
-                          color: const Color(0xff283c7c),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'มีบัญชีผู้ใช้แล้ว?  ',
+                          style: TextStyle(
+                            fontFamily: 'FC Minimal',
+                            fontSize: 17,
+                            color: const Color(0xffffffff),
+                          ),
+                          textHeightBehavior: TextHeightBehavior(
+                              applyHeightToFirstAscent: false),
+                          textAlign: TextAlign.center,
                         ),
-                      ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    //navigator to login with facebook
+                                    builder: (context) => SignUp()));
+                          },
+                          child: Text(
+                            'เข้าสู่ระบบ',
+                            style: TextStyle(
+                              fontFamily: 'FC Minimal',
+                              fontSize: 17,
+                              color: const Color(0xff283c7c),
+                            ),
+                          ),
+                        )
+                      ],
                     )
                   ],
-                )
+                ),
               ],
             ),
           ),

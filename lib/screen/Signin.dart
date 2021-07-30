@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:getpregv2/screen/SignUp.dart';
-import 'package:getpregv2/screen/StartScreen.dart';
+
+import 'SignUp.dart';
+// import 'StartScreen.dart';
 
 class Signin extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class Signin extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               SizedBox(
@@ -78,10 +79,10 @@ class Signin extends StatelessWidget {
               Container(
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => StartScreen()));
-                  },
+                  // onTap: () {
+                  //   Navigator.push(context,
+                  //       MaterialPageRoute(builder: (context) => StartScreen()));
+                  // },
                   child: Text(
                     'ลืมรหัสผ่าน?',
                     style: TextStyle(
@@ -121,42 +122,42 @@ class Signin extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              //navigator to login with facebook
-                              builder: (context) => StartScreen()));
-                    },
+                    // onTap: () {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           //navigator to login with facebook
+                    //           builder: (context) => StartScreen()));
+                    // },
                     child: Image.asset(
                       'assets/images/facebook.png',
-                      height: 55,
-                      width: 55,
-                      fit: BoxFit.fitHeight,
+                      // height: 55,
+                      // width: 55,
+                      // fit: BoxFit.fill,
                     ),
                   ),
                   SizedBox(
                     width: 30,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              //navigator to login with facebook
-                              builder: (context) => StartScreen()));
-                    },
+                    // onTap: () {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           //navigator to login with facebook
+                    //           builder: (context) => StartScreen()));
+                    // },
                     child: Image.asset(
                       'assets/images/google.png',
-                      height: 55,
-                      width: 55,
-                      fit: BoxFit.fitHeight,
+                      // height: 55,
+                      // width: 55,
+                      // fit: BoxFit.fill,
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

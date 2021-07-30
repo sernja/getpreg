@@ -31,5 +31,5 @@ final slideList = [
   Slide(
       imageUrl: 'assets/images/page_view3.png',
       title: 'วางแผนการรักษากับ GETPREG',
-      description: 'ขอขอบคุณที่ไว้วางใจใหเ GETPREG')
+      description: 'ขอขอบคุณที่ไว้วางใจให้ GETPREG')
 ];
