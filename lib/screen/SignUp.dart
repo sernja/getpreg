@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'StartScreen.dart';
+import 'TestLinkScreen.dart';
 
 class SignUp extends StatefulWidget {
   _SignUp createState() => _SignUp();
@@ -60,7 +60,6 @@ class _SignUp extends State<SignUp> {
                       ),
                       SizedBox(height: 1),
                       TextField(
-                        obscureText: true,
                         style: TextStyle(fontSize: 18, color: Colors.black54),
                         decoration: InputDecoration(
                           filled: true,
@@ -79,7 +78,6 @@ class _SignUp extends State<SignUp> {
                       ),
                       SizedBox(height: 1),
                       TextField(
-                        obscureText: true,
                         style: TextStyle(fontSize: 18, color: Colors.black54),
                         decoration: InputDecoration(
                           filled: true,
@@ -109,7 +107,6 @@ class _SignUp extends State<SignUp> {
                       ),
                       SizedBox(height: 1),
                       TextField(
-                        obscureText: true,
                         style: TextStyle(fontSize: 18, color: Colors.black54),
                         decoration: InputDecoration(
                           filled: true,
@@ -192,7 +189,7 @@ class _SignUp extends State<SignUp> {
                                 context,
                                 MaterialPageRoute(
                                     //navigator to login with facebook
-                                    builder: (context) => StartScreen()));
+                                    builder: (context) => TestLinkScreen()));
                           },
                           child: Image.asset(
                             'assets/images/google.png',
@@ -210,7 +207,7 @@ class _SignUp extends State<SignUp> {
                                 context,
                                 MaterialPageRoute(
                                     //navigator to login with facebook
-                                    builder: (context) => StartScreen()));
+                                    builder: (context) => TestLinkScreen()));
                           },
                           child: Image.asset(
                             'assets/images/facebook.png',

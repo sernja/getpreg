@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'ForgotPassword.dart';
 import 'SignUp.dart';
-// import 'StartScreen.dart';
+import 'TestLinkScreen.dart';
 
 class Signin extends StatelessWidget {
   @override
@@ -79,10 +80,10 @@ class Signin extends StatelessWidget {
               Container(
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
-                  // onTap: () {
-                  //   Navigator.push(context,
-                  //       MaterialPageRoute(builder: (context) => StartScreen()));
-                  // },
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ForgotPassword()));
+                  },
                   child: Text(
                     'ลืมรหัสผ่าน?',
                     style: TextStyle(
@@ -122,13 +123,13 @@ class Signin extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   GestureDetector(
-                    // onTap: () {
-                    //   Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //           //navigator to login with facebook
-                    //           builder: (context) => StartScreen()));
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              //navigator to login with facebook
+                              builder: (context) => TestLinkScreen()));
+                    },
                     child: Image.asset(
                       'assets/images/facebook.png',
                       // height: 55,
@@ -140,13 +141,13 @@ class Signin extends StatelessWidget {
                     width: 30,
                   ),
                   GestureDetector(
-                    // onTap: () {
-                    //   Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //           //navigator to login with facebook
-                    //           builder: (context) => StartScreen()));
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              //navigator to login with facebook
+                              builder: (context) => TestLinkScreen()));
+                    },
                     child: Image.asset(
                       'assets/images/google.png',
                       // height: 55,
