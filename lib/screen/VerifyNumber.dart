@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:getpreg/screen/Signin.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
-import 'SignUp.dart';
 import 'TestLinkScreen.dart';
 
-class ForgotPassword extends StatefulWidget {
-  _ForgotPassword createState() => _ForgotPassword();
+class VerifyNumber extends StatefulWidget {
+  _VerifyNumber createState() => _VerifyNumber();
 }
 
-class _ForgotPassword extends State<ForgotPassword> {
+class _VerifyNumber extends State<VerifyNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -49,7 +50,7 @@ class _ForgotPassword extends State<ForgotPassword> {
                   child: Column(
                     children: [
                       Text(
-                        'ลืมรหัสผ่าน ?',
+                        'ยืนยันตัวตน',
                         style: TextStyle(
                           fontFamily: 'FC Minimal',
                           fontSize: 25,
@@ -58,54 +59,27 @@ class _ForgotPassword extends State<ForgotPassword> {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 1),
-                      TextField(
-                        style: TextStyle(fontSize: 18, color: Colors.black54),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: const Color(0xFFFFFFFF).withOpacity(0),
-                          hintText: 'ใส่อีเมล',
-                          contentPadding: const EdgeInsets.all(15),
-                          // focusedBorder: OutlineInputBorder(
-                          //   borderSide: BorderSide(color: Colors.white),
-                          //   borderRadius: BorderRadius.circular(5),
-                          // ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black54),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 20),
                       Text(
-                        'หรือ',
+                        'ใส่รหัสยืนยันตัวตน',
                         style: TextStyle(
                           fontFamily: 'FC Minimal',
                           fontSize: 17,
-                          color: const Color(0xff111111),
+                          color: const Color(0x80111111),
                         ),
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.left,
                       ),
-                      SizedBox(height: 1),
-                      TextField(
-                        style: TextStyle(fontSize: 18, color: Colors.black54),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: const Color(0xFFFFFFFF).withOpacity(0),
-                          hintText: 'เบอร์มือถือ',
-                          contentPadding: const EdgeInsets.all(15),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black54),
-                            borderRadius: BorderRadius.circular(5),
+                      SizedBox(height: 30),
+                      PinFieldAutoFill(
+                          keyboardType: TextInputType.number,
+                          codeLength: 4 //code length, default 6
                           ),
-                        ),
-                      ),
                       SizedBox(height: 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            'ยังไม่มีบัญชีผู้ใช้? ',
+                            'ยังไม่ได้รับรหัสยืนยันตัวตน? ',
                             style: TextStyle(
                               fontFamily: 'FC Minimal',
                               fontSize: 17,
@@ -120,11 +94,11 @@ class _ForgotPassword extends State<ForgotPassword> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      //navigator to login with facebook
-                                      builder: (context) => SignUp()));
+                                      //send sms
+                                      builder: (context) => TestLinkScreen()));
                             },
                             child: Text(
-                              'ลงทะเบียน',
+                              'ส่งอีกครั้ง',
                               style: TextStyle(
                                 fontFamily: 'FC Minimal',
                                 fontSize: 17,
@@ -139,7 +113,10 @@ class _ForgotPassword extends State<ForgotPassword> {
                         alignment: Alignment.centerRight,
                         child: FloatingActionButton(
                           onPressed: () {
-                            //navigator to next page
+                            Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Signin()));
                           },
                           elevation: 0.0,
                           backgroundColor: const Color(0xff283c7c),
@@ -153,27 +130,6 @@ class _ForgotPassword extends State<ForgotPassword> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 3,
-                ),
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              //navigator to login with facebook
-                              builder: (context) => TestLinkScreen()));
-                    },
-                    child: Text(
-                      'ต้องการความช่วยเหลือ',
-                      style: TextStyle(
-                        fontFamily: 'FC Minimal',
-                        fontSize: 17,
-                        color: const Color(0xffffffff),
-                      ),
-                      textAlign: TextAlign.center,
-                    )
-                  ),
               ],
             ),
           ),

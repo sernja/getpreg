@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getpreg/screen/Signin.dart';
 
 import 'TestLinkScreen.dart';
 
@@ -61,6 +62,7 @@ class _SignUp extends State<SignUp> {
                       SizedBox(height: 1),
                       TextField(
                         style: TextStyle(fontSize: 18, color: Colors.black54),
+                        keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: const Color(0xFFFFFFFF).withOpacity(0),
@@ -79,6 +81,7 @@ class _SignUp extends State<SignUp> {
                       SizedBox(height: 1),
                       TextField(
                         style: TextStyle(fontSize: 18, color: Colors.black54),
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: const Color(0xFFFFFFFF).withOpacity(0),
@@ -108,6 +111,7 @@ class _SignUp extends State<SignUp> {
                       SizedBox(height: 1),
                       TextField(
                         style: TextStyle(fontSize: 18, color: Colors.black54),
+                        keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: const Color(0xFFFFFFFF).withOpacity(0),
@@ -163,7 +167,11 @@ class _SignUp extends State<SignUp> {
                         children: [
                           FloatingActionButton(
                             onPressed: () {
-                              //navigator to next page
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      //navigator to login with google
+                                      builder: (context) => Signin()));
                             },
                             elevation: 0.0,
                             backgroundColor: const Color(0xff283c7c),
@@ -188,7 +196,7 @@ class _SignUp extends State<SignUp> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    //navigator to login with facebook
+                                    //navigator to login with google
                                     builder: (context) => TestLinkScreen()));
                           },
                           child: Image.asset(
@@ -240,8 +248,7 @@ class _SignUp extends State<SignUp> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    //navigator to login with facebook
-                                    builder: (context) => SignUp()));
+                                    builder: (context) => Signin()));
                           },
                           child: Text(
                             'เข้าสู่ระบบ',

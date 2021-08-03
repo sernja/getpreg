@@ -1,12 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:getpregv2/screen/StartScreen2.dart';
 
 import '../widgets/slide_item.dart';
-import '../model/slide.dart';
 import '../widgets/slide_dots.dart';
-import 'Signin.dart';
 import 'StartScreen2.dart';
 // import '../screens/login_screen.dart';
 // import '../screens/signup_screen.dart';

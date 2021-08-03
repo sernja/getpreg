@@ -36,8 +36,22 @@ class Signin extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
+              Text(
+                'เข้าสู่ระบบ',
+                style: TextStyle(
+                  fontFamily: 'FC Minimal',
+                  fontSize: 25,
+                  color: const Color(0xff111111),
+                  fontWeight: FontWeight.w700,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
               TextField(
                 style: TextStyle(fontSize: 18, color: Colors.black54),
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0xFFFFFFFF).withOpacity(0),
@@ -81,8 +95,10 @@ class Signin extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ForgotPassword()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ForgotPassword()));
                   },
                   child: Text(
                     'ลืมรหัสผ่าน?',

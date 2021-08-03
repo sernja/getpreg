@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'SignUp.dart';
 import 'TestLinkScreen.dart';
-import 'Verification.dart';
+import 'VerifyNumber.dart';
 
 class ForgotPassword extends StatefulWidget {
   _ForgotPassword createState() => _ForgotPassword();
@@ -141,9 +141,10 @@ class _ForgotPassword extends State<ForgotPassword> {
                         child: FloatingActionButton(
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Verification()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => VerifyNumber()),
+                            );
                           },
                           elevation: 0.0,
                           backgroundColor: const Color(0xff283c7c),
