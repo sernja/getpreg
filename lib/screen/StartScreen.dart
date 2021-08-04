@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import '../widgets/slide_item.dart';
 import '../widgets/slide_dots.dart';
 import 'StartScreen2.dart';
-// import '../screens/login_screen.dart';
-// import '../screens/signup_screen.dart';
 
 class StartScreen extends StatefulWidget {
   @override

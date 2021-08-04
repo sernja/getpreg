@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:getpreg/screen/Signin.dart';
 
 import 'TestLinkScreen.dart';
+import 'Signin.dart';
 
 class SignUp extends StatefulWidget {
   _SignUp createState() => _SignUp();
@@ -129,9 +129,9 @@ class _SignUp extends State<SignUp> {
                           Checkbox(
                             // checkColor: Colors.black,
                             value: isChecked,
-                            onChanged: (bool? value) {
+                            onChanged: (bool value) {
                               setState(() {
-                                isChecked = value!;
+                                isChecked = value;
                               });
                             },
                           ),

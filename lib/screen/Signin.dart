@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'ForgotPassword.dart';
 import 'SignUp.dart';
 import 'TestLinkScreen.dart';
+import 'Splesh.dart';
 
 class Signin extends StatelessWidget {
   @override
@@ -120,7 +121,10 @@ class Signin extends StatelessWidget {
                 children: <Widget>[
                   FloatingActionButton(
                     onPressed: () {
-                      //navigator to next page
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Splesh()));
                     },
                     elevation: 0.0,
                     backgroundColor: const Color(0xff283c7c),

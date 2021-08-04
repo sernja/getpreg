@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:getpreg/screen/Signin.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
 import 'TestLinkScreen.dart';
+import 'Signin.dart';
 
 class VerifyNumber extends StatefulWidget {
   _VerifyNumber createState() => _VerifyNumber();
