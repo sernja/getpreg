@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
+import 'Loading.dart';
+import 'Tours.dart';
 
 class Splesh extends StatefulWidget {
   @override
@@ -28,17 +30,19 @@ class _Splesh extends State<Splesh> {
             CupertinoDialogAction(
               child: Text("ใช่"),
               onPressed: () {
-                Fluttertoast.showToast(
-                    msg: "ใช่", toastLength: Toast.LENGTH_SHORT);
-                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Loading()),
+                );
               },
             ),
             CupertinoDialogAction(
               child: Text("ไม่ใช่"),
               onPressed: () {
-                Fluttertoast.showToast(
-                    msg: "ไม่ใช่", toastLength: Toast.LENGTH_SHORT);
-                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Tours()),
+                );
               },
             )
           ],

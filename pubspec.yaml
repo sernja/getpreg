@@ -23,6 +23,7 @@ environment:
 dependencies:
   adobe_xd: ^2.0.0+1
   sms_autofill: ^2.0.1
+  loading_gifs: ^0.3.0
   flutter:
     sdk: flutter
 
