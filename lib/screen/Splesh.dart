@@ -41,7 +41,7 @@ class _Splesh extends State<Splesh> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Tours()),
+                  MaterialPageRoute(builder: (context) => new Tours()),
                 );
               },
             )
