@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Tours extends StatefulWidget {
@@ -39,29 +38,50 @@ class _Tours extends State<Tours> {
                 ),
               ),
             ),
-            Padding(
-                padding: const EdgeInsets.only(top: 60),
-                child: buildFloatingSearchBar()),
+            Row(
+              children: [
+                buildTextFormField(),
+                Icon(Icons.menu),
+              ],
+            )
+            // buildTextFormField(),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.end,
+            //   // verticalDirection: VerticalDirection.up,
+            //   children: [
+            //     buildTextFormField(),
+            //     Icon(Icons.ac_unit),
+            //     Icon(Icons.access_alarm),
+            //   ],
+            // ),
           ],
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        width: double.infinity,
-        height: double.infinity,
-      ),
+      // body: Container(
+      //   padding: const EdgeInsets.all(10),
+      //   width: double.infinity,
+      //   height: double.infinity,
+      // ),
     );
   }
 
-  Widget buildFloatingSearchBar() {
-    return TextFormField(
-        style:
-            new TextStyle(fontWeight: FontWeight.normal, color: Colors.white),
-        decoration: InputDecoration(
-          hintText: 'Email',
-          contentPadding:
-              new EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(70.0)),
-        ));
+  Widget buildTextFormField() {
+    return Container(
+      height: 125,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 90, left: 20, right: 70),
+        child: TextFormField(
+            style:
+                TextStyle(fontWeight: FontWeight.normal, color: Colors.white),
+            decoration: InputDecoration(
+              hintText: 'Search here',
+              prefixIcon: Icon(Icons.search),
+              contentPadding:
+                  new EdgeInsets.symmetric(vertical: 1.0, horizontal: 20.0),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(100.0)),
+            )),
+      ),
+    );
   }
 }
