@@ -90,11 +90,12 @@ class _Tours extends State<Tours> {
           ],
         ),
       ),
-      // body: Container(
-      //   padding: const EdgeInsets.all(10),
-      //   width: double.infinity,
-      //   height: double.infinity,
-      // ),
+      body: Container(
+        padding: const EdgeInsets.all(10),
+        width: double.infinity,
+        height: double.infinity,
+      ),
+      bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
 
@@ -126,6 +127,63 @@ class _Tours extends State<Tours> {
               //     OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
             )),
       ),
+    );
+  }
+
+  Widget buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(
+              'assets/images/home.png',
+            ),
+            color: Colors.black,
+          ),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(
+              'assets/images/heart.png',
+            ),
+            color: Colors.black,
+          ),
+          label: 'Business',
+          // backgroundColor: Colors.green,
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(
+              'assets/images/doc.png',
+            ),
+            color: Colors.black,
+          ),
+          label: 'School',
+          backgroundColor: Colors.purple,
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(
+              'assets/images/calendar.png',
+            ),
+            color: Colors.black,
+          ),
+          label: 'School',
+          backgroundColor: Colors.purple,
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(
+              'assets/images/avatar.png',
+            ),
+            color: Colors.black,
+          ),
+          label: 'School',
+          backgroundColor: Colors.purple,
+        ),
+      ],
+      selectedItemColor: Colors.amber[800],
     );
   }
 }
