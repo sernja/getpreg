@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../widgets/slide_item.dart';
-import '../widgets/slide_dots.dart';
+import '../widgets/SlideItem.dart';
+import '../widgets/SlideDots.dart';
 import 'StartScreen2.dart';
 
 class StartScreen extends StatefulWidget {

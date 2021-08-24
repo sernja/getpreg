@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:getpreg/widgets/ListTours.dart';
 
 import 'TestLinkScreen.dart';
 
@@ -90,11 +92,7 @@ class _Tours extends State<Tours> {
           ],
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        width: double.infinity,
-        height: double.infinity,
-      ),
+      body: ListTours(),
       bottomNavigationBar: buildBottomNavigationBar(),
     );
   }
@@ -131,59 +129,28 @@ class _Tours extends State<Tours> {
   }
 
   Widget buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: ImageIcon(
-            AssetImage(
-              'assets/images/home.png',
-            ),
-            color: Colors.black,
-          ),
-          label: '',
+    return ConvexAppBar(
+      backgroundColor: Colors.white,
+      style: TabStyle.fixedCircle,
+      items: [
+        TabItem(
+          icon: Image.asset('assets/images/home.png'),
         ),
-        BottomNavigationBarItem(
-          icon: ImageIcon(
-            AssetImage(
-              'assets/images/heart.png',
-            ),
-            color: Colors.black,
-          ),
-          label: 'Business',
-          // backgroundColor: Colors.green,
+        TabItem(
+          icon: Image.asset('assets/images/heart.png'),
         ),
-        BottomNavigationBarItem(
-          icon: ImageIcon(
-            AssetImage(
-              'assets/images/doc.png',
-            ),
-            color: Colors.black,
-          ),
-          label: 'School',
-          backgroundColor: Colors.purple,
+        TabItem(
+          icon: Image.asset('assets/images/doc.png'),
         ),
-        BottomNavigationBarItem(
-          icon: ImageIcon(
-            AssetImage(
-              'assets/images/calendar.png',
-            ),
-            color: Colors.black,
-          ),
-          label: 'School',
-          backgroundColor: Colors.purple,
+        TabItem(
+          icon: Image.asset('assets/images/calendar.png'),
         ),
-        BottomNavigationBarItem(
-          icon: ImageIcon(
-            AssetImage(
-              'assets/images/avatar.png',
-            ),
-            color: Colors.black,
-          ),
-          label: 'School',
-          backgroundColor: Colors.purple,
+        TabItem(
+          icon: Image.asset('assets/images/avatar.png'),
         ),
       ],
-      selectedItemColor: Colors.amber[800],
+      initialActiveIndex: 2, //optional, default as 0
+      onTap: (int i) => print('click index=$i'),
     );
   }
 }

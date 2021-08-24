@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 // import 'package:getpregv2/screen/StartScreen2.dart';
 
-import '../widgets/slide_item.dart';
+import '../widgets/SlideItem.dart';
 // import '../model/slide.dart';
 // import '../widgets/slide_dots.dart';
 import 'Signin.dart';
