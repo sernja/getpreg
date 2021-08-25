@@ -14,7 +14,7 @@ class _Tours extends State<Tours> {
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(200.0),
+        preferredSize: Size.fromHeight(120.0),
         child: Stack(
           children: [
             Container(
@@ -24,11 +24,7 @@ class _Tours extends State<Tours> {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.menu,
-                          size: 30,
-                          color: Colors.black,
-                        ),
+                        Image.asset('assets/images/sidemenu.png'),
                         SizedBox(
                           width: 10,
                         ),
