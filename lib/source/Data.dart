@@ -41,7 +41,7 @@ class Data {
       "star": 3.1
     },
     {
-      "icon_img": "assets/images/anutin-charnvirakul.่ยเ",
+      "icon_img": "assets/images/anutin-charnvirakul.jpg",
       "name": "นายอนุทิน ชาญวีรกูล",
       "place": "Smile IVF Clinic",
       "university": "แพทยศาสตร์ มหาวิทยาลัยธรรมศาสตร์",
