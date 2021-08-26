@@ -86,7 +86,7 @@ class CustomListItem extends StatelessWidget {
               ),
               Expanded(
                 flex: 3,
-                child: _VideoDescription(
+                child: _Description(
                   title: title,
                   place: place,
                   university: university,
@@ -127,8 +127,8 @@ class CustomListItem extends StatelessWidget {
   }
 }
 
-class _VideoDescription extends StatelessWidget {
-  const _VideoDescription({
+class _Description extends StatelessWidget {
+  const _Description({
     Key key,
     this.title,
     this.place,

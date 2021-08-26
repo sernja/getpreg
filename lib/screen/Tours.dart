@@ -14,7 +14,7 @@ class _Tours extends State<Tours> {
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(120.0),
+        preferredSize: Size.fromHeight(130.0),
         child: Stack(
           children: [
             Container(
@@ -53,7 +53,7 @@ class _Tours extends State<Tours> {
                                     builder: (context) => TestLinkScreen()));
                           },
                           child: Padding(
-                            padding: const EdgeInsets.only(bottom: 20),
+                            padding: const EdgeInsets.only(left: 10, top: 10),
                             child: Image.asset(
                               'assets/images/levels.png',
                               width: 23,
@@ -70,7 +70,7 @@ class _Tours extends State<Tours> {
                                     builder: (context) => TestLinkScreen()));
                           },
                           child: Padding(
-                            padding: const EdgeInsets.only(bottom: 20),
+                            padding: const EdgeInsets.only(top: 10),
                             child: Image.asset(
                               'assets/images/place.png',
                               color: const Color(0xff727272),
@@ -95,7 +95,7 @@ class _Tours extends State<Tours> {
 
   Widget buildTextFormField() {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(top: 10),
       child: Container(
         // height: 125,
         decoration: BoxDecoration(
