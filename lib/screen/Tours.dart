@@ -40,10 +40,7 @@ class _Tours extends State<Tours> {
                     ),
                     Row(
                       children: [
-                        Expanded(
-                          flex: 3,
-                          child: buildTextFormField(),
-                        ),
+                        buildTextFormField(),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -53,7 +50,7 @@ class _Tours extends State<Tours> {
                                     builder: (context) => TestLinkScreen()));
                           },
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 10),
+                            padding: const EdgeInsets.only(left: 7, top: 10),
                             child: Image.asset(
                               'assets/images/levels.png',
                               width: 23,
@@ -70,7 +67,7 @@ class _Tours extends State<Tours> {
                                     builder: (context) => TestLinkScreen()));
                           },
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(left: 7, top: 10),
                             child: Image.asset(
                               'assets/images/place.png',
                               color: const Color(0xff727272),
@@ -97,7 +94,7 @@ class _Tours extends State<Tours> {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Container(
-        // height: 125,
+        width: 320.0,
         decoration: BoxDecoration(
           color: const Color(0xFFFFFFFF),
           borderRadius: new BorderRadius.all(

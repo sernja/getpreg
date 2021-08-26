@@ -19,7 +19,7 @@ class ListTours extends StatelessWidget {
     return CustomListItem(
       title: 'นพ.a',
       place: 'Private clinic',
-      university: 'แพทย์ศาสตร์ จุฬา',
+      university: 'แพทย์ศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย',
       review: 3123,
     );
   }
@@ -85,7 +85,7 @@ class CustomListItem extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 3,
+                flex: 2,
                 child: _Description(
                   title: title,
                   place: place,
@@ -93,19 +93,25 @@ class CustomListItem extends StatelessWidget {
                   review: review,
                 ),
               ),
-              Image.asset('assets/images/star.png'),
-              Text(
-                '5.0',
-                style: TextStyle(
-                  fontFamily: 'Lato',
-                  fontSize: 30,
-                  color: const Color(0xff111111),
-                  fontWeight: FontWeight.w700,
-                  height: 1.0666666666666667,
+              Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: Image.asset('assets/images/star.png'),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: Text(
+                  '5.0',
+                  style: TextStyle(
+                    fontFamily: 'Lato',
+                    fontSize: 30,
+                    color: const Color(0xff111111),
+                    fontWeight: FontWeight.w700,
+                    height: 1.0666666666666667,
+                  ),
+                  textHeightBehavior:
+                      TextHeightBehavior(applyHeightToFirstAscent: false),
+                  textAlign: TextAlign.left,
                 ),
-                textHeightBehavior:
-                    TextHeightBehavior(applyHeightToFirstAscent: false),
-                textAlign: TextAlign.left,
               ),
             ],
           ),
@@ -169,6 +175,7 @@ class _Description extends StatelessWidget {
               ),
               SizedBox(
                 height: 10,
+                width: 5,
               ),
               Text(
                 place,
@@ -192,6 +199,7 @@ class _Description extends StatelessWidget {
               ),
               SizedBox(
                 height: 10,
+                width: 5,
               ),
               Text(
                 university,
