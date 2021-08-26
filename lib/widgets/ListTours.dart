@@ -1,26 +1,29 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:getpreg/source/Data.dart';
 import 'package:intl/intl.dart';
 
 class ListTours extends StatelessWidget {
-  final List<String> items = List<String>.generate(10, (i) => 'll');
+  List items = Data().user;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: items.length,
       itemBuilder: (context, index) {
-        return buildlist();
+        return buildlist(index);
       },
     );
   }
 
-  Widget buildlist() {
+  Widget buildlist(int index) {
     return CustomListItem(
-      title: 'นพ.a',
-      place: 'Private clinic',
-      university: 'แพทย์ศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย',
-      review: 3123,
+      imgProfile: items[index]["icon_img"],
+      title: items[index]["name"],
+      place: items[index]["place"],
+      university: items[index]["university"],
+      review: items[index]["review"],
+      star: items[index]["star"].toDouble(),
     );
   }
 }
@@ -28,18 +31,20 @@ class ListTours extends StatelessWidget {
 class CustomListItem extends StatelessWidget {
   const CustomListItem({
     Key key,
-    // this.thumbnail,
+    this.imgProfile,
     this.title,
     this.place,
     this.university,
     this.review,
+    this.star,
   }) : super(key: key);
 
-  // final Widget thumbnail;
+  final String imgProfile;
   final String title;
   final String place;
   final String university;
   final int review;
+  final double star;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +59,10 @@ class CustomListItem extends StatelessWidget {
                 flex: 1,
                 child: Column(
                   children: [
-                    Image.asset('assets/images/img_3.png'),
+                    CircleAvatar(
+                      radius: 20,
+                      foregroundImage: AssetImage(imgProfile),
+                    ),
                     SizedBox(
                       height: 25,
                     ),
@@ -100,7 +108,7 @@ class CustomListItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 20),
                 child: Text(
-                  '5.0',
+                  star.toString(),
                   style: TextStyle(
                     fontFamily: 'Lato',
                     fontSize: 30,
@@ -241,4 +249,3 @@ class _Description extends StatelessWidget {
     );
   }
 }
-
