@@ -121,7 +121,8 @@ class CustomListItem extends StatelessWidget {
           Divider(
             height: 1,
             color: Colors.black,
-            indent: 30,
+            indent: 40,
+            endIndent: 20,
             // endIndent: 20,
           ),
           SizedBox(
@@ -201,16 +202,21 @@ class _Description extends StatelessWidget {
                 height: 10,
                 width: 5,
               ),
-              Text(
-                university,
-                style: const TextStyle(
-                  fontFamily: 'Lato',
-                  fontSize: 13,
-                  color: const Color(0x80111111),
-                  height: 1.2307692307692308,
+              Flexible(
+                fit: FlexFit.loose,
+                child: Text(
+                  university,
+                  overflow: TextOverflow.visible,
+                  softWrap: false,
+                  style: const TextStyle(
+                    fontFamily: 'Lato',
+                    fontSize: 13,
+                    color: const Color(0x80111111),
+                    height: 1.2307692307692308,
+                  ),
+                  textHeightBehavior:
+                      TextHeightBehavior(applyHeightToFirstAscent: false),
                 ),
-                textHeightBehavior:
-                    TextHeightBehavior(applyHeightToFirstAscent: false),
               ),
             ],
           ),
@@ -236,29 +242,3 @@ class _Description extends StatelessWidget {
   }
 }
 
-/// This is the stateless widget that the main application instantiates.
-// class BuildList extends StatelessWidget {
-//   const BuildList({Key key}) : super(key: key);
-
-//   @override
-//   Widget buildlist(BuildContext context) {
-//     return ListView(
-//       padding: const EdgeInsets.all(8.0),
-//       itemExtent: 106.0,
-//       children: <CustomListItem>[
-//         CustomListItem(
-//           profileImg: 'assets/images/img_3.png',
-//           user: 'Private clinic',
-//           place: 'แพทย์ศาสตร์ จุฬา',
-//           title: 'นพ.a',
-//         ),
-//         CustomListItem(
-//           profileImg: 'assets/images/img_3.png',
-//           user: 'Private clinic',
-//           place: 'แพทย์ศาสตร์ จุฬา',
-//           title: 'นพ.a',
-//         ),
-//       ],
-//     );
-//   }
-// }
