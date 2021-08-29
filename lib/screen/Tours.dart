@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:getpreg/widgets/ListTours.dart';
+import 'package:getpreg/widgets/SortsAndFilter.dart';
 
 import 'TestLinkScreen.dart';
 
@@ -42,13 +43,10 @@ class _Tours extends State<Tours> {
                       children: [
                         buildTextFormField(),
                         GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    //navigator to login with facebook
-                                    builder: (context) => TestLinkScreen()));
-                          },
+                          onTap: () => showModalBottomSheet<bool>(
+                            context: context,
+                            builder: (context) => SortsAndFilter(),
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 7, top: 10),
                             child: Image.asset(
@@ -63,7 +61,6 @@ class _Tours extends State<Tours> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    //navigator to login with facebook
                                     builder: (context) => TestLinkScreen()));
                           },
                           child: Padding(
