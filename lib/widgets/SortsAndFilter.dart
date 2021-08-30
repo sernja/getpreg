@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class SortsAndFilter extends StatefulWidget {
   @override
@@ -6,13 +7,13 @@ class SortsAndFilter extends StatefulWidget {
 }
 
 class _SortsAndFilterState extends State<SortsAndFilter> {
+  RangeValues _currentRangeValues = const RangeValues(0, 1000000);
   @override
-  Widget build(BuildContext context) {
-    return buildPopupDialog(context);
-  }
+  Widget build(BuildContext context) => buildPopupDialog(context);
 
   Widget buildPopupDialog(BuildContext context) {
-    RangeValues _currentRangeValues = const RangeValues(40, 80);
+    final double min = 0;
+    final double max = 1000000;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,33 +93,55 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
             textAlign: TextAlign.left,
           ),
         ),
-        RangeSlider(
-          values: _currentRangeValues,
-          min: 0,
-          max: 100,
-          divisions: 5,
-          labels: RangeLabels(
-            _currentRangeValues.start.round().toString(),
-            _currentRangeValues.end.round().toString(),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            buildSideLabel(_currentRangeValues, true),
+            SizedBox(
+              width: 250,
+            ),
+            buildSideLabel(_currentRangeValues, false),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 50, right: 50),
+          child: SliderTheme(
+            data: SliderThemeData(),
+            child: RangeSlider(
+              values: _currentRangeValues,
+              min: min,
+              max: max,
+              divisions: 1000000,
+              activeColor: const Color(0XFF29C582),
+              onChanged: (RangeValues values) {
+                setState(() => _currentRangeValues = values);
+              },
+            ),
           ),
-          onChanged: (RangeValues values) {
-            setState(() {
-              _currentRangeValues = values;
-            });
-          },
+        ),
+        SizedBox(
+          height: 10,
         ),
       ],
     );
-    // actions: <Widget>[
-    //   new TextButton(
-    //     onPressed: () {
-    //       Navigator.of(context).pop();
-    //     },
-    //     style: TextButton.styleFrom(
-    //       primary: Colors.blue,
-    //     ),
-    //     child: const Text('Close'),
-    //   ),
-    // ],
   }
+}
+
+buildSideLabel(RangeValues value, bool isLeft) => Container(
+    child: (isLeft)
+        ? Text(
+            value.start.round().toString(),
+          )
+        : Text(
+            value.end.round().toString(),
+          ));
+
+buildTextLabel(value) {
+  // print(value.runtimeType);
+  Text(
+    value,
+  );
 }
