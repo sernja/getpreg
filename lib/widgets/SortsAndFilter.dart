@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
@@ -62,51 +64,38 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
                   ),
                   textHeightBehavior:
                       TextHeightBehavior(applyHeightToFirstAscent: false),
-                  textAlign: TextAlign.left,
                 ),
               ),
             )
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 25),
-          child: Text(
-            'ขอบเขตราคา',
-            style: TextStyle(
-              fontFamily: 'FC Minimal',
-              fontSize: 27,
-              color: const Color(0xb2111111),
-              fontWeight: FontWeight.w700,
-              height: 0.8888888888888888,
-            ),
-            textHeightBehavior:
-                TextHeightBehavior(applyHeightToFirstAscent: false),
-            textAlign: TextAlign.left,
-          ),
-        ),
+        buildTitle('ขอบเขตราคา'),
         SizedBox(height: 10),
         Row(
           children: [
-            SizedBox(width: 57),
+            SizedBox(width: 65),
             Container(
               width: 70,
               child: buildTextLabel(_lowerValue),
             ),
-            SizedBox(width: 180),
+            SizedBox(width: 173),
             buildTextLabel(_upperValue),
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 50, right: 50),
+          padding: const EdgeInsets.only(left: 65, right: 50),
           child: FlutterSlider(
+            handlerHeight: 22,
+            handlerWidth: 22,
             values: [_lowerValue, _upperValue],
             rangeSlider: true,
             max: 1000000,
             min: 0,
             jump: true,
             trackBar: FlutterSliderTrackBar(
-              activeTrackBar: BoxDecoration(color: const Color(0xFF29C582)),
-            ),
+                activeTrackBar: BoxDecoration(color: const Color(0xFF29C582)),
+                activeTrackBarHeight: 4.5,
+                inactiveTrackBarHeight: 4.5),
             tooltip: FlutterSliderTooltip(
               disabled: true,
             ),
@@ -121,27 +110,62 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
             },
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
+        SizedBox(height: 10),
+        buildTitle('เรียงลำดับจาก'),
+        builFilter('คะแนนรีวิวการปรึกษา'),
+        builFilter('ราคา'),
+        builFilter('% การทำสำเร็จ'),
+        SizedBox(height: 20),
       ],
     );
   }
+}
+
+buildTitle(String text) {
+  return Padding(
+    padding: const EdgeInsets.only(left: 25),
+    child: Text(
+      text,
+      style: TextStyle(
+        fontFamily: 'FC Minimal',
+        fontSize: 27,
+        color: const Color(0xb2111111),
+        fontWeight: FontWeight.w700,
+        height: 0.8888888888888888,
+      ),
+      textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: false),
+    ),
+  );
+}
+
+buildSubTitle(String text) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 10),
+    child: Text(
+      text,
+      style: TextStyle(
+        fontFamily: 'FC Minimal',
+        fontSize: 22,
+        color: const Color(0xb2111111),
+        fontWeight: FontWeight.w700,
+        height: 1.0909090909090908,
+      ),
+      textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: false),
+    ),
+  );
 }
 
 buildFlutterSliderHandler() {
   return FlutterSliderHandler(
     child: Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF29C582),
-        borderRadius: BorderRadius.circular(25),
-      ),
-      padding: EdgeInsets.all(10),
-      child: Container(
-        padding: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
+        shape: BoxShape.rectangle,
+        border: Border.all(
+          color: const Color(0xFF29C582),
+          width: 6,
+        ),
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
         ),
       ),
     ),
@@ -156,5 +180,66 @@ buildTextLabel(front) {
       fontSize: 12,
       color: const Color(0x80111111),
     ),
+  );
+}
+
+builFilter(String s) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Row(
+        children: [
+          SizedBox(width: 25),
+          Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: const Color(0xffffffff),
+              border: Border.all(width: 1.0, color: const Color(0xff707070)),
+            ),
+          ),
+          SizedBox(width: 15),
+          buildSubTitle(s),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // SizedBox(width: 60),
+          buildElevatedButton('มาก'),
+          SizedBox(width: 20),
+          Image.asset('assets/images/group.png'),
+          SizedBox(width: 20),
+          buildElevatedButton('น้อย'),
+        ],
+      ),
+    ],
+  );
+}
+
+buildElevatedButton(String text) {
+  return ElevatedButton(
+    child: Text(
+      text,
+      style: TextStyle(
+        fontFamily: 'FC Minimal',
+        fontSize: 17,
+        color: const Color(0xff585858),
+        height: 1.411764705882353,
+      ),
+      textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: false),
+    ),
+    style: ElevatedButton.styleFrom(
+      fixedSize: Size(102, 29),
+      primary: Colors.white,
+      onPrimary: Colors.black,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: const Color(0xFFDBDFE5),
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
+    onPressed: () => null,
   );
 }
