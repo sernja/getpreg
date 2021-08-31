@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:getpreg/test/sfslider.dart';
 import 'package:getpreg/widgets/ListTours.dart';
 import 'package:getpreg/widgets/SortsAndFilter.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import 'TestLinkScreen.dart';
 

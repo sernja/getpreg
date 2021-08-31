@@ -36,6 +36,7 @@ dependencies:
   convex_bottom_bar: ^3.0.0
   intl: ^0.17.0
   page_transition: ^2.0.2
+  flutter_xlider: ^3.4.0
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_xlider/flutter_xlider.dart';
 
 class SortsAndFilter extends StatefulWidget {
   @override
@@ -7,30 +8,25 @@ class SortsAndFilter extends StatefulWidget {
 }
 
 class _SortsAndFilterState extends State<SortsAndFilter> {
-  RangeValues _currentRangeValues = const RangeValues(0, 1000000);
+  double _lowerValue = 0;
+  double _upperValue = 1000000;
   @override
   Widget build(BuildContext context) => buildPopupDialog(context);
 
   Widget buildPopupDialog(BuildContext context) {
-    final double min = 0;
-    final double max = 1000000;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           children: [
-            SizedBox(
-              width: 15,
-            ),
+            SizedBox(width: 15),
             Image.asset(
               'assets/images/letter-x.png',
               width: 14,
               height: 14,
             ),
-            SizedBox(
-              width: 110,
-            ),
+            SizedBox(width: 110),
             Text(
               'Sorts & Filters',
               style: TextStyle(
@@ -44,9 +40,7 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
                   TextHeightBehavior(applyHeightToFirstAscent: false),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              width: 50,
-            ),
+            SizedBox(width: 50),
             Flexible(
               child: TextButton(
                 onPressed: () {
@@ -74,9 +68,6 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
             )
           ],
         ),
-        // SizedBox(
-        //   width: 50,
-        // ),
         Padding(
           padding: const EdgeInsets.only(left: 25),
           child: Text(
@@ -93,33 +84,41 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
             textAlign: TextAlign.left,
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
+        SizedBox(height: 10),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            buildSideLabel(_currentRangeValues, true),
-            SizedBox(
-              width: 250,
+            SizedBox(width: 57),
+            Container(
+              width: 70,
+              child: buildTextLabel(_lowerValue),
             ),
-            buildSideLabel(_currentRangeValues, false),
+            SizedBox(width: 180),
+            buildTextLabel(_upperValue),
           ],
         ),
         Padding(
           padding: const EdgeInsets.only(left: 50, right: 50),
-          child: SliderTheme(
-            data: SliderThemeData(),
-            child: RangeSlider(
-              values: _currentRangeValues,
-              min: min,
-              max: max,
-              divisions: 1000000,
-              activeColor: const Color(0XFF29C582),
-              onChanged: (RangeValues values) {
-                setState(() => _currentRangeValues = values);
-              },
+          child: FlutterSlider(
+            values: [_lowerValue, _upperValue],
+            rangeSlider: true,
+            max: 1000000,
+            min: 0,
+            jump: true,
+            trackBar: FlutterSliderTrackBar(
+              activeTrackBar: BoxDecoration(color: const Color(0xFF29C582)),
             ),
+            tooltip: FlutterSliderTooltip(
+              disabled: true,
+            ),
+            handler: buildFlutterSliderHandler(),
+            rightHandler: buildFlutterSliderHandler(),
+            // disabled: false,
+            onDragging: (handlerIndex, lowerValue, upperValue) {
+              setState(() {
+                _lowerValue = lowerValue;
+                _upperValue = upperValue;
+              });
+            },
           ),
         ),
         SizedBox(
@@ -130,18 +129,32 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
   }
 }
 
-buildSideLabel(RangeValues value, bool isLeft) => Container(
-    child: (isLeft)
-        ? Text(
-            value.start.round().toString(),
-          )
-        : Text(
-            value.end.round().toString(),
-          ));
+buildFlutterSliderHandler() {
+  return FlutterSliderHandler(
+    child: Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFF29C582),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      padding: EdgeInsets.all(10),
+      child: Container(
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(25),
+        ),
+      ),
+    ),
+  );
+}
 
-buildTextLabel(value) {
-  // print(value.runtimeType);
-  Text(
-    value,
+buildTextLabel(front) {
+  return Text(
+    '฿ ${NumberFormat("#,###").format(front)}',
+    style: TextStyle(
+      fontFamily: 'Lato',
+      fontSize: 12,
+      color: const Color(0x80111111),
+    ),
   );
 }
