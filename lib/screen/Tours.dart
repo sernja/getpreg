@@ -26,9 +26,7 @@ class _Tours extends State<Tours> {
                     Row(
                       children: [
                         Image.asset('assets/images/sidemenu.png'),
-                        SizedBox(
-                          width: 10,
-                        ),
+                        SizedBox(width: 10),
                         Text(
                           'เลือกแพทย์ที่คุณต้องการ',
                           style: TextStyle(
