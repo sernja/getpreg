@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
+import 'package:getpreg/widgets/Review.dart';
 
 class Tours2 extends StatelessWidget {
   @override
@@ -91,7 +93,12 @@ class Tours2 extends StatelessWidget {
                 child: buildStar(star),
               ),
             ],
-          )
+          ),
+          showModalBottomSheet<bool>(
+            context: context,
+            builder: (builder) => Review(Data().treatReview),
+            isScrollControlled: true,
+          ),
         ],
       ),
     );
