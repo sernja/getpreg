@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
@@ -13,6 +15,13 @@ class Tours2 extends StatelessWidget {
     String university = 'แพทย์ศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย';
     var star = 5.0;
     String img = 'assets/images/img_3.png';
+
+    // bool firstInitial = true;
+    // var timer;
+    // if (firstInitial == true) {
+    //   firstInitial = false;
+    //   Timer(Duration(seconds: 1), () => _showbottom(context));
+    // }
 
     return Scaffold(
       body: Column(
@@ -94,15 +103,30 @@ class Tours2 extends StatelessWidget {
               ),
             ],
           ),
-          showModalBottomSheet<bool>(
-            context: context,
-            builder: (builder) => Review(Data().treatReview),
-            isScrollControlled: true,
-          ),
+          // Review(Data().treatReview),
+          // GestureDetector(
+          //   behavior: HitTestBehavior.translucent,
+          //   onTap: () => _showbottom(context),
+          // ),
+          Review(Data().treatReview),
         ],
       ),
     );
   }
+}
+
+_showbottom(context) {
+  return showModalBottomSheet<bool>(
+    context: context,
+    builder: (context) => Review(Data().treatReview),
+    isScrollControlled: true,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+    ),
+    enableDrag: false,
+    isDismissible: true,
+    backgroundColor: Colors.white,
+  );
 }
 
 buildProfile(String name, String img) {
