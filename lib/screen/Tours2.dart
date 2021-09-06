@@ -1,3 +1,4 @@
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
 import 'package:getpreg/widgets/TreatReview.dart';
@@ -13,113 +14,144 @@ class Tours2 extends StatelessWidget {
     var star = 5.0;
     String img = 'assets/images/img_3.png';
 
-    // bool firstInitial = true;
-    // var timer;
-    // if (firstInitial == true) {
-    //   firstInitial = false;
-    //   Timer(Duration(seconds: 1), () => _showbottom(context));
-    // }
-
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Image.asset('assets/images/button_back.png'),
-                ),
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Image.asset('assets/images/button_back.png'),
               ),
-              Container(
-                width: 500,
-                height: 800,
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 200),
-                      child: GestureDetector(
-                        child: TreatReview(),
+            ),
+            Container(
+              width: 500,
+              height: 800,
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 200),
+                    child: GestureDetector(
+                      child: TreatReview(),
+                    ),
+                  ),
+                  Image.asset(
+                    'assets/images/textBox_.png',
+                    scale: 0.9,
+                    fit: BoxFit.fitWidth,
+                  ),
+                  buildProfile(name, img),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60, left: 80),
+                    child: Row(
+                      children: [
+                        buildAbility(ability_1),
+                        SizedBox(width: 10),
+                        buildAbility(ability_2),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 45, left: 290),
+                    child: Image.asset('assets/images/like_tour2.png'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 90, left: 72),
+                    child: PlaceAndEdu().buildPlace(place),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 110, left: 72),
+                    child: PlaceAndEdu().buildEdu(university),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 150, left: 55),
+                    child: Text(
+                      '80%',
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 30,
+                        color: const Color(0xff111111),
+                        fontWeight: FontWeight.w700,
+                        height: 0.8,
                       ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
                     ),
-                    Image.asset(
-                      'assets/images/textBox_.png',
-                      scale: 0.9,
-                      fit: BoxFit.fitWidth,
-                    ),
-                    buildProfile(name, img),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 60, left: 80),
-                      child: Row(
-                        children: [
-                          buildAbility(ability_1),
-                          SizedBox(width: 10),
-                          buildAbility(ability_2),
-                        ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 190, left: 25),
+                    child: Text(
+                      '(ทำสำเร็จ 80 เคสจาก 100 เคส)',
+                      style: TextStyle(
+                        fontFamily: 'FC Minimal',
+                        fontSize: 11,
+                        color: const Color(0xffa4a7ab),
+                        height: 2.1818181818181817,
                       ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                      textAlign: TextAlign.left,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 45, left: 290),
-                      child: Image.asset('assets/images/like_tour2.png'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 90, left: 72),
-                      child: PlaceAndEdu().buildPlace(place),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 110, left: 72),
-                      child: PlaceAndEdu().buildEdu(university),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 150, left: 55),
-                      child: Text(
-                        '80%',
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 30,
-                          color: const Color(0xff111111),
-                          fontWeight: FontWeight.w700,
-                          height: 0.8,
-                        ),
-                        textHeightBehavior:
-                            TextHeightBehavior(applyHeightToFirstAscent: false),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 190, left: 25),
-                      child: Text(
-                        '(ทำสำเร็จ 80 เคสจาก 100 เคส)',
-                        style: TextStyle(
-                          fontFamily: 'FC Minimal',
-                          fontSize: 11,
-                          color: const Color(0xffa4a7ab),
-                          height: 2.1818181818181817,
-                        ),
-                        textHeightBehavior:
-                            TextHeightBehavior(applyHeightToFirstAscent: false),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 145, left: 205),
-                      child: buildStar(star),
-                    ),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 145, left: 205),
+                    child: buildStar(star),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+      bottomNavigationBar: buildBottomBar(),
     );
   }
+}
+
+buildBottomBar() {
+  return BottomNavigationBar(
+    showUnselectedLabels: false,
+    showSelectedLabels: false,
+    items: <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        icon: buildTextStyleBottom('Online consult'),
+        label: '',
+      ),
+      BottomNavigationBarItem(
+        icon: buildTextStyleBottom('Health Checkup'),
+        label: '',
+      ),
+    ],
+    // currentIndex: _selectedIndex,
+    selectedItemColor: Colors.amber[800],
+    // onTap: _onItemTapped,
+  );
+}
+
+buildTextStyleBottom(String s) {
+  return Text(
+    s,
+    style: TextStyle(
+      fontFamily: 'Lato',
+      fontSize: 16,
+      color: const Color(0xff111111),
+      fontWeight: FontWeight.w700,
+      height: 2,
+      shadows: [
+        Shadow(
+          color: const Color(0x29000000),
+          offset: Offset(0, 3),
+          blurRadius: 6,
+        )
+      ],
+    ),
+  );
 }
 
 buildProfile(String name, String img) {
