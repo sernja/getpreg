@@ -12,21 +12,16 @@ class _TreatReviewState extends State<TreatReview> {
 
   @override
   Widget build(BuildContext context) {
-    String title = items[0][0]["title"];
     return Scaffold(
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           SliverAppBar(
             backgroundColor: Colors.white,
-            flexibleSpace: const FlexibleSpaceBar(
-                // title: Text('SliverAppBar'),
-                // background: FlutterLogo(),
-                ),
           ),
           SliverToBoxAdapter(
             child: GestureDetector(
-              child: Review(items[1]),
+              child: Review(items),
             ),
           ),
         ],

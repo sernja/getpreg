@@ -5,44 +5,29 @@ class Review extends StatelessWidget {
   final List items;
   @override
   Widget build(BuildContext context) {
-    print(items.length);
+    String title = items[0][0]["title"];
+    // print(items[1][0]["icon_img"]);
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(50), topRight: Radius.circular(50)),
-      ),
+      // decoration: BoxDecoration(
+      //   color: Colors.white,
+      //   borderRadius: BorderRadius.only(
+      //     topLeft: Radius.circular(50),
+      //     topRight: Radius.circular(50),
+      //   ),
+      // ),
       child: Stack(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              margin: EdgeInsets.only(left: 40, top: 40.0, bottom: 50),
-              child: Text(
-                "รีวิวการ รักษา กับคุณหมอ",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'DB HELVETHAICAMON X',
-                ),
-                textAlign: TextAlign.left,
-              ),
-            ),
+          Padding(
+            padding: EdgeInsets.only(left: 40),
+            child: buildTitle(title),
           ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 120),
-              child: ListView.builder(
-                // physics: FixedExtentScrollPhysics(),
-                controller: ScrollController(),
-                shrinkWrap: true,
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return buildlist(index);
-                },
-              ),
-            ),
+          ListView.builder(
+            controller: ScrollController(),
+            shrinkWrap: true,
+            itemCount: items[1].length,
+            itemBuilder: (context, index) {
+              return buildlist(index);
+            },
           ),
         ],
       ),
@@ -51,11 +36,47 @@ class Review extends StatelessWidget {
 
   Widget buildlist(int index) {
     return CustomListItem(
-      imgProfile: items[index]["icon_img"],
-      name: items[index]["name"],
-      message: items[index]["message"],
-      date: items[index]["date"],
-      star: items[index]["star"].toDouble(),
+      imgProfile: items[1][index]["icon_img"],
+      name: items[1][index]["name"],
+      message: items[1][index]["message"],
+      date: items[1][index]["date"],
+      star: items[1][index]["star"].toDouble(),
+    );
+  }
+
+  buildTitle(String title) {
+    return Text.rich(
+      TextSpan(
+        style: TextStyle(
+          fontFamily: 'FC Minimal',
+          fontSize: 20,
+          color: const Color(0xff111111),
+          height: 0.8,
+          shadows: [
+            Shadow(
+              color: const Color(0x29000000),
+              offset: Offset(0, 3),
+              blurRadius: 6,
+            )
+          ],
+        ),
+        children: [
+          TextSpan(
+            text: 'รีวิวการ ',
+          ),
+          TextSpan(
+            text: title,
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          TextSpan(
+            text: ' กับคุณหมอ',
+          ),
+        ],
+      ),
+      textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: false),
+      textAlign: TextAlign.left,
     );
   }
 }
@@ -77,11 +98,6 @@ class CustomListItem extends StatelessWidget {
   final double star;
 
   Widget build(BuildContext context) {
-    // print(imgProfile);
-    // print(name);
-    // print(message);
-    // print(date);
-    // print(star);
     return Container(
       child: Column(
         children: [
