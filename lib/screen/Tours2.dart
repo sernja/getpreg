@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
 import 'package:getpreg/widgets/Review.dart';
+import 'package:getpreg/widgets/TreatReview.dart';
 
 class Tours2 extends StatelessWidget {
   @override
@@ -24,110 +25,130 @@ class Tours2 extends StatelessWidget {
     // }
 
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 30),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Image.asset('assets/images/button_back.png'),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Image.asset('assets/images/button_back.png'),
+              ),
             ),
-          ),
-          Stack(
-            children: [
-              Image.asset(
-                'assets/images/textBox_.png',
-                scale: 0.9,
-                fit: BoxFit.fitWidth,
-              ),
-              buildProfile(name, img),
-              Padding(
-                padding: const EdgeInsets.only(top: 60, left: 80),
-                child: Row(
-                  children: [
-                    buildAbility(ability_1),
-                    SizedBox(width: 10),
-                    buildAbility(ability_2),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 45, left: 290),
-                child: Image.asset('assets/images/like_tour2.png'),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 90, left: 72),
-                child: PlaceAndEdu().buildPlace(place),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 110, left: 72),
-                child: PlaceAndEdu().buildEdu(university),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 150, left: 55),
-                child: Text(
-                  '80%',
-                  style: TextStyle(
-                    fontFamily: 'Lato',
-                    fontSize: 30,
-                    color: const Color(0xff111111),
-                    fontWeight: FontWeight.w700,
-                    height: 0.8,
+            Container(
+              width: 500,
+              height: 800,
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 200),
+                    child: GestureDetector(
+                      child: TreatReview(),
+                    ),
                   ),
-                  textHeightBehavior:
-                      TextHeightBehavior(applyHeightToFirstAscent: false),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 190, left: 25),
-                child: Text(
-                  '(ทำสำเร็จ 80 เคสจาก 100 เคส)',
-                  style: TextStyle(
-                    fontFamily: 'FC Minimal',
-                    fontSize: 11,
-                    color: const Color(0xffa4a7ab),
-                    height: 2.1818181818181817,
+                  Image.asset(
+                    'assets/images/textBox_.png',
+                    scale: 0.9,
+                    fit: BoxFit.fitWidth,
                   ),
-                  textHeightBehavior:
-                      TextHeightBehavior(applyHeightToFirstAscent: false),
-                  textAlign: TextAlign.left,
-                ),
+                  buildProfile(name, img),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60, left: 80),
+                    child: Row(
+                      children: [
+                        buildAbility(ability_1),
+                        SizedBox(width: 10),
+                        buildAbility(ability_2),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 45, left: 290),
+                    child: Image.asset('assets/images/like_tour2.png'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 90, left: 72),
+                    child: PlaceAndEdu().buildPlace(place),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 110, left: 72),
+                    child: PlaceAndEdu().buildEdu(university),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 150, left: 55),
+                    child: Text(
+                      '80%',
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 30,
+                        color: const Color(0xff111111),
+                        fontWeight: FontWeight.w700,
+                        height: 0.8,
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 190, left: 25),
+                    child: Text(
+                      '(ทำสำเร็จ 80 เคสจาก 100 เคส)',
+                      style: TextStyle(
+                        fontFamily: 'FC Minimal',
+                        fontSize: 11,
+                        color: const Color(0xffa4a7ab),
+                        height: 2.1818181818181817,
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 145, left: 205),
+                    child: buildStar(star),
+                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(top: 200),
+                  //   child: GestureDetector(
+                  //     child: TreatReview(),
+                  //   ),
+                  // ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 145, left: 205),
-                child: buildStar(star),
-              ),
-            ],
-          ),
-          // Review(Data().treatReview),
-          // GestureDetector(
-          //   behavior: HitTestBehavior.translucent,
-          //   onTap: () => _showbottom(context),
-          // ),
-          Review(Data().treatReview),
-        ],
+            ),
+            // Review(Data().treatReview),
+            // GestureDetector(
+            //   behavior: HitTestBehavior.translucent,
+            //   onTap: () => _showbottom(context),
+            // ),
+            // Review(Data().treatReview),
+          ],
+        ),
       ),
     );
   }
 }
 
-_showbottom(context) {
-  return showModalBottomSheet<bool>(
-    context: context,
-    builder: (context) => Review(Data().treatReview),
-    isScrollControlled: true,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-    ),
-    enableDrag: false,
-    isDismissible: true,
-    backgroundColor: Colors.white,
-  );
-}
+// _showbottom(context) {
+//   return showModalBottomSheet<bool>(
+//     context: context,
+//     builder: (context) => TreatReview(),
+//     isScrollControlled: true,
+//     shape: RoundedRectangleBorder(
+//       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+//     ),
+//     enableDrag: false,
+//     isDismissible: true,
+//     backgroundColor: Colors.white,
+//   );
+// }
 
 buildProfile(String name, String img) {
   return Row(
