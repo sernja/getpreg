@@ -1,7 +1,9 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
 import 'package:getpreg/widgets/TreatReview.dart';
+import 'Splesh13.dart';
+
+import 'ConsulReview.dart';
 
 class Tours2 extends StatelessWidget {
   @override
@@ -39,6 +41,12 @@ class Tours2 extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 200),
                     child: GestureDetector(
                       child: TreatReview(),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 400),
+                    child: GestureDetector(
+                      child: ConsulReview(),
                     ),
                   ),
                   Image.asset(
@@ -109,32 +117,42 @@ class Tours2 extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: buildBottomBar(),
+      bottomNavigationBar: buildBottomBar(context),
     );
   }
 }
 
-buildBottomBar() {
-  return BottomNavigationBar(
-    showUnselectedLabels: false,
-    showSelectedLabels: false,
-    items: <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        icon: buildTextStyleBottom('Online consult'),
-        label: '',
-      ),
-      BottomNavigationBarItem(
-        icon: buildTextStyleBottom('Health Checkup'),
-        label: '',
-      ),
-    ],
-    // currentIndex: _selectedIndex,
-    selectedItemColor: Colors.amber[800],
-    // onTap: _onItemTapped,
+buildBottomBar(BuildContext context) {
+  return BottomAppBar(
+    // shape: shape,
+    // color: Colors.blue,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        TextButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => Splesh13(),
+            ),
+          ),
+          child: buildTextBottom('Online consult'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => Splesh13(),
+            ),
+          ),
+          child: buildTextBottom('Health Checkup'),
+        ),
+      ],
+    ),
   );
 }
 
-buildTextStyleBottom(String s) {
+buildTextBottom(String s) {
   return Text(
     s,
     style: TextStyle(
