@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
 import 'package:getpreg/widgets/TreatReview.dart';
+import '../widgets/Review.dart';
 import 'Splesh13.dart';
 
-import 'ConsulReview.dart';
-
 class Tours2 extends StatelessWidget {
+  final List items = Data().treatReview;
   @override
   Widget build(BuildContext context) {
     String name = 'นพ.a';
@@ -18,6 +19,7 @@ class Tours2 extends StatelessWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Color(0xffF6F6F6),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,18 +39,7 @@ class Tours2 extends StatelessWidget {
               height: 800,
               child: Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 200),
-                    child: GestureDetector(
-                      child: TreatReview(),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 400),
-                    child: GestureDetector(
-                      child: ConsulReview(),
-                    ),
-                  ),
+                  Review(),
                   Image.asset(
                     'assets/images/textBox_.png',
                     scale: 0.9,

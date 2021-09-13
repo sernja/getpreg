@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:getpreg/widgets/Review.dart';
 import 'package:getpreg/widgets/ListTours.dart';
 
-class TreatReview extends StatelessWidget {
-  const TreatReview(this.items);
+class ConsultReview extends StatelessWidget {
+  const ConsultReview(this.items);
   final List items;
   @override
   Widget build(BuildContext context) {
