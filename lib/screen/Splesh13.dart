@@ -96,15 +96,19 @@ buildCanlendar() {
             headerStyle: HeaderStyle(
               formatButtonVisible: false,
               titleCentered: true,
+              leftChevronIcon: ImageIcon(
+                AssetImage('assets/images/leftChevron.png'),
+                // size: 10,
+              ),
               rightChevronPadding: EdgeInsets.only(right: 50),
               leftChevronPadding: EdgeInsets.only(left: 50),
-              // leftChevronIcon : Icon(),
               titleTextStyle: TextStyle(
                 fontFamily: 'Arial Rounded MT Bold',
                 fontSize: 20,
                 color: const Color(0xff919192),
               ),
-              titleTextFormatter: (date, locale) => DateFormat.MMMM(locale).format(date),
+              titleTextFormatter: (date, locale) =>
+                  DateFormat.MMMM(locale).format(date),
             ),
             daysOfWeekStyle: DaysOfWeekStyle(
               decoration: BoxDecoration(
