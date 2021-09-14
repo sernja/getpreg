@@ -11,21 +11,28 @@ class ConsultReview extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(50),
-          topRight: Radius.circular(50),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(35)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 5,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
       ),
-      child: Stack(
+      child: Column(
         children: [
           Padding(
             padding: EdgeInsets.only(
               left: 10,
             ),
             child: Container(
-              margin: EdgeInsets.only(left: 40, top: 40.0,),
-              child:  
-              buildTitle(title, context),
+              margin: EdgeInsets.only(
+                left: 30,
+                top: 20.0,
+              ),
+              child: buildTitle(title, context),
             ),
           ),
           ListView.builder(
@@ -88,43 +95,43 @@ class ConsultReview extends StatelessWidget {
               TextHeightBehavior(applyHeightToFirstAscent: false),
           textAlign: TextAlign.left,
         ),
-       TextButton(
+        TextButton(
           style: TextButton.styleFrom(
             textStyle: const TextStyle(fontSize: 20),
           ),
           onPressed: () {
-              // showModalBottomSheet(
-              //               context: context,
-              //               isScrollControlled: true,
-              //               enableDrag: true,
-              //               isDismissible: false,
-              //                backgroundColor: Colors.transparent,
-              //               builder: (context) {
-              //                 return DraggableScrollableSheet(
-              //                     // initialChildSize: 0.5,
-              //                     minChildSize: 0.01,
-              //                     maxChildSize: 1.0,
-              //                     expand: true,
-              //                     builder: (BuildContext context,
-              //                         ScrollController scrollController) {
-              //                       return Container(
-              //                         // color: Colors.blue[100],
-              //                         // child: Review(items),
-              //                         child: ListView.builder(
-              //                           controller: scrollController,
-              //                           itemCount: 25,
-              //                           itemBuilder:
-              //                               (BuildContext context, int index) {
-              //                             return DataReview(items);
-              //                             // ListTile(title: Text('Item $index')
-              //                             // );
-              //                           },
-              //                         ),
-              //                       );
-              //                     });
-              //               });
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ListTours()));
+            // showModalBottomSheet(
+            //               context: context,
+            //               isScrollControlled: true,
+            //               enableDrag: true,
+            //               isDismissible: false,
+            //                backgroundColor: Colors.transparent,
+            //               builder: (context) {
+            //                 return DraggableScrollableSheet(
+            //                     // initialChildSize: 0.5,
+            //                     minChildSize: 0.01,
+            //                     maxChildSize: 1.0,
+            //                     expand: true,
+            //                     builder: (BuildContext context,
+            //                         ScrollController scrollController) {
+            //                       return Container(
+            //                         // color: Colors.blue[100],
+            //                         // child: Review(items),
+            //                         child: ListView.builder(
+            //                           controller: scrollController,
+            //                           itemCount: 25,
+            //                           itemBuilder:
+            //                               (BuildContext context, int index) {
+            //                             return DataReview(items);
+            //                             // ListTile(title: Text('Item $index')
+            //                             // );
+            //                           },
+            //                         ),
+            //                       );
+            //                     });
+            //               });
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => ListTours()));
           },
           child: const Text('Enabled'),
         ),
@@ -187,92 +194,90 @@ class CustomListItem extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 80.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 40,
-                right: 20,
-              ),
-              child: Column(
-                children: [
-                  Divider(
-                    height: 1,
-                    color: Colors.black,
-                    // indent: 40,
-                    // endIndent: 20,
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Image.asset(imgProfile),
-                      SizedBox(width: 20),
-                      Text(
-                        name,
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 16,
-                          color: const Color(0xff111111),
-                          fontWeight: FontWeight.w700,
-                          height: 2,
-                        ),
-                        textHeightBehavior:
-                            TextHeightBehavior(applyHeightToFirstAscent: false),
-                      ),
-                      SizedBox(width: 70),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 35),
-                        child: Image.asset('assets/images/star.png'),
-                      ),
-                      Text(
-                        star.toString(),
-                        style: TextStyle(
-                          fontFamily: 'Lato',
-                          fontSize: 30,
-                          color: const Color(0xff111111).withOpacity(0.39),
-                          fontWeight: FontWeight.w700,
-                          height: 1.0666666666666667,
-                        ),
-                        textHeightBehavior:
-                            TextHeightBehavior(applyHeightToFirstAscent: false),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30, right: 100),
-                    child: Text(
-                      message,
-                      style: TextStyle(
-                        fontFamily: 'Lato',
-                        fontSize: 13,
-                        color: const Color(0xff111111),
-                        height: 1.2307692307692308,
-                      ),
-                      textHeightBehavior:
-                          TextHeightBehavior(applyHeightToFirstAscent: false),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 140),
-                    child: Text(
-                      date,
-                      style: TextStyle(
-                        fontFamily: 'Lato',
-                        fontSize: 12,
-                        color: const Color(0x68111111),
-                        height: 1.3333333333333333,
-                      ),
-                      textHeightBehavior:
-                          TextHeightBehavior(applyHeightToFirstAscent: false),
-                    ),
-                  ),
-                ],
-              ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 40,
+              right: 20,
             ),
-          ],
-        ),
+            child: Column(
+              children: [
+                SizedBox(height: 15),
+                Divider(
+                  height: 1,
+                  color: Colors.black,
+                  // indent: 40,
+                  // endIndent: 20,
+                ),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Image.asset(imgProfile),
+                    SizedBox(width: 20),
+                    Text(
+                      name,
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 16,
+                        color: const Color(0xff111111),
+                        fontWeight: FontWeight.w700,
+                        height: 2,
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                    ),
+                    SizedBox(width: 70),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 35),
+                      child: Image.asset('assets/images/star.png'),
+                    ),
+                    Text(
+                      star.toString(),
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 30,
+                        color: const Color(0xff111111).withOpacity(0.39),
+                        fontWeight: FontWeight.w700,
+                        height: 1.0666666666666667,
+                      ),
+                      textHeightBehavior:
+                          TextHeightBehavior(applyHeightToFirstAscent: false),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 100),
+                  child: Text(
+                    message,
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 13,
+                      color: const Color(0xff111111),
+                      height: 1.2307692307692308,
+                    ),
+                    textHeightBehavior:
+                        TextHeightBehavior(applyHeightToFirstAscent: false),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 140),
+                  child: Text(
+                    date,
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 12,
+                      color: const Color(0x68111111),
+                      height: 1.3333333333333333,
+                    ),
+                    textHeightBehavior:
+                        TextHeightBehavior(applyHeightToFirstAscent: false),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

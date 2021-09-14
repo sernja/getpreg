@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
 import 'package:getpreg/widgets/TreatReview.dart';
-import '../widgets/Review.dart';
+import '../model/SplitReviews.dart';
 import 'Splesh13.dart';
 
 class Tours2 extends StatelessWidget {
@@ -39,7 +39,7 @@ class Tours2 extends StatelessWidget {
               height: 800,
               child: Stack(
                 children: [
-                  Review(),
+                  SplitReviews(),
                   Image.asset(
                     'assets/images/textBox_.png',
                     scale: 0.9,

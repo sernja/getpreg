@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/TreatReview.dart';
 
-import 'ConsultReview.dart';
+import '../widgets/ConsultReview.dart';
 
-class Review extends StatefulWidget {
+class SplitReviews extends StatefulWidget {
   @override
-  _ReviewState createState() => _ReviewState();
+  _SplitReviewsState createState() => _SplitReviewsState();
 }
 
-class _ReviewState extends State<Review> {
+class _SplitReviewsState extends State<SplitReviews> {
   final List treat = Data().treatReview;
   final List consult = Data().consulReview;
   @override
@@ -18,26 +18,26 @@ class _ReviewState extends State<Review> {
       body: Stack(
         children: [
           DraggableScrollableSheet(
-              initialChildSize: 0.72,
-              minChildSize: 0.72,
-              maxChildSize: 1.0,
-              expand: true,
-              builder:
-                  (BuildContext context, ScrollController scrollController) {
-                return Container(
-                  // color: Colors.blue[100],
-                  // child: Review(items),
-                  child: ListView.builder(
-                    controller: scrollController,
-                    itemCount: 25,
-                    itemBuilder: (BuildContext context, int index) {
-                      return TreatReview(treat);
-                      // ListTile(title: Text('Item $index')
-                      // );
-                    },
-                  ),
-                );
-              }),
+            initialChildSize: 0.72,
+            minChildSize: 0.72,
+            maxChildSize: 1.0,
+            expand: true,
+            builder: (BuildContext context, ScrollController scrollController) {
+              return Container(
+                // color: Colors.blue[100],
+                // child: Review(items),
+                child: ListView.builder(
+                  controller: scrollController,
+                  itemCount: 25,
+                  itemBuilder: (BuildContext context, int index) {
+                    return TreatReview(treat);
+                    // ListTile(title: Text('Item $index')
+                    // );
+                  },
+                ),
+              );
+            },
+          ),
           DraggableScrollableSheet(
             // initialChildSize: 0.5,
             minChildSize: 0.2,
