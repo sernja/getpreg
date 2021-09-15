@@ -96,9 +96,11 @@ buildCanlendar() {
             headerStyle: HeaderStyle(
               formatButtonVisible: false,
               titleCentered: true,
-              leftChevronIcon: ImageIcon(
-                AssetImage('assets/images/leftChevron.png'),
-                // size: 10,
+              leftChevronIcon: Image(
+                image: AssetImage('assets/images/leftChevron.png'),
+              ),
+              rightChevronIcon: Image(
+                image: AssetImage('assets/images/rightChevron.png'),
               ),
               rightChevronPadding: EdgeInsets.only(right: 50),
               leftChevronPadding: EdgeInsets.only(left: 50),
