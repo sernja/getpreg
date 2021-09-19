@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
-import 'package:getpreg/widgets/TreatReview.dart';
 import '../model/SplitReviews.dart';
 import 'Splesh13.dart';
 
