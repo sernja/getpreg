@@ -17,7 +17,6 @@ class Splesh13 extends StatefulWidget {
 
 class _Splesh13State extends State<Splesh13> {
   // Map<DateTime, List<Event>> selectedEvents;
-  int _currentPage = 0;
   CalendarFormat format = CalendarFormat.month;
   DateTime selectedDay;
   DateTime focusedDay = DateTime.now();

@@ -126,7 +126,7 @@ buildBottomBar(BuildContext context) {
               builder: (BuildContext context) => Splesh13(),
             ),
           ),
-          child: buildTextBottom('Online consult'),
+          child: buildTextBottom('Online'),
         ),
         TextButton(
           onPressed: () => Navigator.push(
