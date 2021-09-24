@@ -11,6 +11,7 @@ class ForgotPassword extends StatefulWidget {
 class _ForgotPassword extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,

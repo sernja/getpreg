@@ -11,6 +11,7 @@ class VerifyNumber extends StatefulWidget {
 class _VerifyNumber extends State<VerifyNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,

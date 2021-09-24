@@ -11,6 +11,7 @@ class _SignUp extends State<SignUp> {
   Widget build(BuildContext context) {
     bool isChecked = false;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,
