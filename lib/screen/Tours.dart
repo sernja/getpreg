@@ -13,6 +13,7 @@ class Tours extends StatefulWidget {
 class _Tours extends State<Tours> {
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFFF6F6F6),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(130.0),

@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:getpreg/model/SlidePickTime.dart';
 
+import 'Splesh15.dart';
+
 class AddEvent extends StatefulWidget {
+  final DateTime selectedDay;
+  AddEvent(this.selectedDay);
+
   @override
-  State<AddEvent> createState() => _AddEventState();
+  State<AddEvent> createState() => _AddEventState(selectedDay);
 }
 
 class _AddEventState extends State<AddEvent> {
+  final DateTime date;
+  _AddEventState(this.date);
+
   int _currentPage = 0;
+  String name = 'นพ.a';
 
   _onPageChanged(int index) {
     setState(() {
@@ -39,7 +48,6 @@ class _AddEventState extends State<AddEvent> {
     return Container(
       width: 330,
       height: 151,
-      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: const Color(0xffC4D3E8),
         borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -73,7 +81,6 @@ class _AddEventState extends State<AddEvent> {
 
   buildSlideDots(bool isActive) {
     return Container(
-      // duration: Duration(milliseconds: 150),
       margin: const EdgeInsets.symmetric(horizontal: 10),
       height: isActive ? 12 : 8,
       width: isActive ? 12 : 8,
@@ -87,13 +94,23 @@ class _AddEventState extends State<AddEvent> {
   buildSlideItem(int index) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      // crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Row(
           children: [
             SizedBox(width: 10),
             ElevatedButton(
-              onPressed: () => {},
+              onPressed: () => showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    contentPadding: EdgeInsets.all(0.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                    ),
+                    content: Splesh15(name, date, slideListTime[index].time1),
+                  );
+                },
+              ),
               style: _styleElevatedButton(),
               child: Text(
                 slideListTime[index].time1,

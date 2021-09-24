@@ -40,6 +40,8 @@ dependencies:
   table_calendar: ^3.0.2
   flutter_cupertino_date_picker: ^1.0.26+2
   popup_menu: ^1.0.5
+  google_maps_flutter: ^2.0.10
+  location: ^4.3.0
 
 dev_dependencies:
   flutter_test:

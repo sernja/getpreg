@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:getpreg/widgets/AddEvent.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:popup_menu/popup_menu.dart';
 // import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 
 // const String MIN_DATETIME = '2019-05-15 20:10:55';
 // const String MAX_DATETIME = '2019-07-01 12:30:40';
 // const String INIT_DATETIME = '2019-05-16 09:00:58';
-// const String DATE_FORMAT = 'MMMM-EEEE-dd,HH:mm';
+var formatter = new DateFormat('dd/MM/yyyy');
 
 class Splesh13 extends StatefulWidget {
   @override
@@ -20,24 +19,12 @@ class _Splesh13State extends State<Splesh13> {
   CalendarFormat format = CalendarFormat.month;
   DateTime selectedDay;
   DateTime focusedDay = DateTime.now();
-
-  void stateChanged(bool isShow) {
-    print('menu is ${isShow ? 'showing' : 'closed'}');
-  }
-
-  void onClickMenu(MenuItemProvider item) {
-    print('Click menu -> ${item.menuTitle}');
-  }
-
-  void onDismiss() {
-    print('Menu is dismiss');
-  }
+  String formattedDate;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(10),
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
@@ -85,19 +72,19 @@ class _Splesh13State extends State<Splesh13> {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
+                  semanticLabel: formattedDate =
+                      DateFormat.MMMEd().format(selectedDay),
                   contentPadding: EdgeInsets.all(0.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                   ),
-                  content: AddEvent(),
+                  content: AddEvent(selectedDay),
                 );
               });
         },
       ),
     );
   }
-
-  void maxColumn() {}
 
   Widget buildCanlendar() {
     return Container(
@@ -214,10 +201,6 @@ class _Splesh13State extends State<Splesh13> {
       ),
     );
   }
-}
-
-buildTimePicker(DateTime date, _currentPage, PopupMenu menu) {
-  return;
 }
 
 buildSlideDots(bool isActive) {

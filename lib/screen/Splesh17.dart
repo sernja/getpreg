@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Map.dart';
+import 'Splesh18.dart';
 
 // ignore: must_be_immutable
-class Loading extends StatefulWidget {
+class Splesh17 extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => StartState();
+  State<StatefulWidget> createState() => _Splesh17();
 }
 
-class StartState extends State<Loading> {
+class _Splesh17 extends State<Splesh17> {
   @override
   Widget build(BuildContext context) {
     return initScreen(context);
@@ -24,13 +24,13 @@ class StartState extends State<Loading> {
   }
 
   startTimer() async {
-    var duration = Duration(seconds: 60);
+    var duration = Duration(seconds: 5);
     return new Timer(duration, route);
   }
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Map()));
+        context, MaterialPageRoute(builder: (context) => Splesh18()));
   }
 
   initScreen(BuildContext context) {

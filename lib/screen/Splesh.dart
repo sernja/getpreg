@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Loading.dart';
+import 'Splesh17.dart';
 import 'Tours.dart';
 
 class Splesh extends StatefulWidget {
@@ -32,7 +32,7 @@ class _Splesh extends State<Splesh> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Loading()),
+                  MaterialPageRoute(builder: (context) => Splesh17()),
                 );
               },
             ),
