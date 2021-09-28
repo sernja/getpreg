@@ -12,7 +12,7 @@ class Splesh18 extends StatefulWidget {
 }
 
 class _Splesh18 extends State<Splesh18> {
-  Completer<GoogleMapController> _controller = Completer();
+  // Completer<GoogleMapController> _controller = Completer();
   // LocationData currentLocation = await getCurrentLocation();
 
   Widget build(BuildContext context) {
@@ -107,25 +107,30 @@ class _Splesh18 extends State<Splesh18> {
             myLocationEnabled: true,
             mapType: MapType.normal,
             initialCameraPosition: CameraPosition(
-              target: LatLng(13.736717, 100.523186),
-              zoom: 15,
+              target: LatLng(13.89571, 100.5563855),
+              zoom: 17,
             ),
+            markers: {
+              Marker(
+                markerId: MarkerId("1"),
+                position: LatLng(13.892367, 100.560344),
+                onTap: () => {},
+              ),
+              Marker(
+                markerId: MarkerId("2"),
+                position: LatLng(13.885993, 100.557973),
+                onTap: () => {},
+              ),
+              Marker(
+                markerId: MarkerId("3"),
+                position: LatLng(13.884248, 100.565304),
+                onTap: () => {},
+              ),
+            },
           ),
         ],
       ),
     );
-  }
-
-  Future<LocationData> getCurrentLocation() async {
-    Location location = Location();
-    try {
-      return await location.getLocation();
-    } on PlatformException catch (e) {
-      if (e.code == 'PERMISSION_DENIED') {
-        print('PERMISSION_DENIED');
-      }
-      return null;
-    }
   }
 
   buildSearchBar() {

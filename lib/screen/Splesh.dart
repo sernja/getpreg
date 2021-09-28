@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:location/location.dart';
 
 import 'Splesh17.dart';
 import 'Tours.dart';
@@ -29,7 +31,8 @@ class _Splesh extends State<Splesh> {
           actions: <Widget>[
             CupertinoDialogAction(
               child: Text("ใช่"),
-              onPressed: () {
+              onPressed: () async {
+                await getCurrentLocation();
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Splesh17()),
@@ -49,5 +52,17 @@ class _Splesh extends State<Splesh> {
         ),
       ),
     );
+  }
+
+  Future<LocationData> getCurrentLocation() async {
+    Location location = Location();
+    try {
+      return await location.getLocation();
+    } on PlatformException catch (e) {
+      if (e.code == 'PERMISSION_DENIED') {
+        print('PERMISSION_DENIED');
+      }
+      return null;
+    }
   }
 }
