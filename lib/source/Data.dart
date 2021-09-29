@@ -22,7 +22,7 @@ class Data {
       "place": "Dr.Sine Clinic",
       "university": "แพทยศาสตร์ มหาวิทยาลัยเชียงใหม่",
       "review": 1200,
-      "star": 4
+      "star": 4.0
     },
     {
       "icon_img": "assets/images/img_2.png",

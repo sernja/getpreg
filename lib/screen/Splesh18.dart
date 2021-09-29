@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:getpreg/screen/Splesh13.dart';
+import 'package:getpreg/widgets/CardSplesh18.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location/location.dart';
 
 class Splesh18 extends StatefulWidget {
   @override
@@ -12,9 +9,6 @@ class Splesh18 extends StatefulWidget {
 }
 
 class _Splesh18 extends State<Splesh18> {
-  // Completer<GoogleMapController> _controller = Completer();
-  // LocationData currentLocation = await getCurrentLocation();
-
   Widget build(BuildContext context) {
     return new Scaffold(
       resizeToAvoidBottomInset: false,
@@ -112,19 +106,18 @@ class _Splesh18 extends State<Splesh18> {
             ),
             markers: {
               Marker(
+                  markerId: MarkerId("0"),
+                  position: LatLng(13.892367, 100.560344),
+                  onTap: () => buildShowDialog(0)),
+              Marker(
                 markerId: MarkerId("1"),
-                position: LatLng(13.892367, 100.560344),
-                onTap: () => {},
+                position: LatLng(13.885993, 100.557973),
+                onTap: () => buildShowDialog(1),
               ),
               Marker(
                 markerId: MarkerId("2"),
-                position: LatLng(13.885993, 100.557973),
-                onTap: () => {},
-              ),
-              Marker(
-                markerId: MarkerId("3"),
                 position: LatLng(13.884248, 100.565304),
-                onTap: () => {},
+                onTap: () => buildShowDialog(2),
               ),
             },
           ),
@@ -157,6 +150,22 @@ class _Splesh18 extends State<Splesh18> {
             // border:
             //     OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
           )),
+    );
+  }
+
+  buildShowDialog(int i) {
+    return showDialog(
+      barrierColor: Colors.white.withOpacity(0),
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          contentPadding: EdgeInsets.all(0.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(30.0)),
+          ),
+          content: CardSplesh18(i),
+        );
+      },
     );
   }
 }

@@ -39,11 +39,10 @@ class PlaceAndEdu extends StatelessWidget {
           width: 5,
         ),
         Flexible(
-          fit: FlexFit.loose,
           child: Text(
             university,
-            overflow: TextOverflow.visible,
-            softWrap: false,
+            overflow: TextOverflow.clip,
+            // softWrap: false,
             style: const TextStyle(
               fontFamily: 'Lato',
               fontSize: 13,
