@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:getpreg/widgets/ListTours.dart';
 
 class ConsultReview extends StatelessWidget {
-  const ConsultReview(this.items);
+  const ConsultReview(this.items, this.controller);
   final List items;
+  final ScrollController controller;
   @override
   Widget build(BuildContext context) {
     String title = items[0][0]["title"];
-    // print(items[1][0]["icon_img"]);
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(35)),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(35),
+          topRight: Radius.circular(35),
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -35,13 +37,15 @@ class ConsultReview extends StatelessWidget {
               child: buildTitle(title, context),
             ),
           ),
-          ListView.builder(
-            controller: ScrollController(),
-            shrinkWrap: true,
-            itemCount: items[1].length,
-            itemBuilder: (context, index) {
-              return buildlist(index);
-            },
+          Expanded(
+            child: ListView.builder(
+              controller: controller,
+              shrinkWrap: true,
+              itemCount: items[1].length,
+              itemBuilder: (context, index) {
+                return buildlist(index);
+              },
+            ),
           ),
         ],
       ),
@@ -95,82 +99,6 @@ class ConsultReview extends StatelessWidget {
               TextHeightBehavior(applyHeightToFirstAscent: false),
           textAlign: TextAlign.left,
         ),
-        TextButton(
-          style: TextButton.styleFrom(
-            textStyle: const TextStyle(fontSize: 20),
-          ),
-          onPressed: () {
-            // showModalBottomSheet(
-            //               context: context,
-            //               isScrollControlled: true,
-            //               enableDrag: true,
-            //               isDismissible: false,
-            //                backgroundColor: Colors.transparent,
-            //               builder: (context) {
-            //                 return DraggableScrollableSheet(
-            //                     // initialChildSize: 0.5,
-            //                     minChildSize: 0.01,
-            //                     maxChildSize: 1.0,
-            //                     expand: true,
-            //                     builder: (BuildContext context,
-            //                         ScrollController scrollController) {
-            //                       return Container(
-            //                         // color: Colors.blue[100],
-            //                         // child: Review(items),
-            //                         child: ListView.builder(
-            //                           controller: scrollController,
-            //                           itemCount: 25,
-            //                           itemBuilder:
-            //                               (BuildContext context, int index) {
-            //                             return DataReview(items);
-            //                             // ListTile(title: Text('Item $index')
-            //                             // );
-            //                           },
-            //                         ),
-            //                       );
-            //                     });
-            //               });
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => ListTours()));
-          },
-          child: const Text('Enabled'),
-        ),
-        //   Container(
-        //     alignment: Alignment.center,
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //       Container(
-        //   alignment: Alignment.center,
-        //   child: RaisedButton(
-        //     shape: RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.all(Radius.circular(10.0))),
-        //     onPressed: () {
-        //       showModalBottomSheet(
-        //           context: context,
-        //           builder: (context) {
-        //             return Column(
-        //               mainAxisSize: MainAxisSize.min,
-        //               children: <Widget>[
-        //                 TreatReview(),
-        //               ],
-        //             );
-        //           });
-        //     },
-        //     padding: EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
-        //     color: Colors.pink,
-        //     child: Text(
-        //       'Click Me',
-        //       style: TextStyle(
-        //           color: Colors.white,
-        //           fontWeight: FontWeight.w600,
-        //           letterSpacing: 0.6),
-        //     ),
-        //   ),
-        // ),
-        //       ],
-        //     ),
-        //   ),
       ],
     );
   }

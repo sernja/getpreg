@@ -17,23 +17,20 @@ class Tours2 extends StatelessWidget {
     String img = 'assets/images/img_3.png';
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xffF6F6F6),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Image.asset('assets/images/button_back.png'),
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Image.asset('assets/images/button_back.png'),
             ),
-            Container(
+          ),
+          Expanded(
+            child: Container(
               width: 500,
               height: 800,
               child: Stack(
@@ -104,8 +101,8 @@ class Tours2 extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: buildBottomBar(context),
     );
