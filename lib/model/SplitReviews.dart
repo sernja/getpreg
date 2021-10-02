@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getpreg/source/Data.dart';
-import 'package:getpreg/widgets/TreatReview.dart';
 
-import '../widgets/ConsultReview.dart';
+import '../widgets/Review.dart';
 
 class SplitReviews extends StatefulWidget {
   @override
@@ -17,33 +16,20 @@ class _SplitReviewsState extends State<SplitReviews> {
     return Scaffold(
       body: Stack(
         children: [
-          DraggableScrollableSheet(
-            initialChildSize: 0.72,
-            minChildSize: 0.72,
-            maxChildSize: 1.0,
-            expand: true,
-            builder: (BuildContext context, ScrollController scrollController) {
-              return Container(
-                // color: Colors.blue[100],
-                // child: Review(items),
-                child: ListView.builder(
-                  controller: scrollController,
-                  itemCount: 25,
-                  itemBuilder: (BuildContext context, int index) {
-                    return TreatReview(treat);
-                    // ListTile(title: Text('Item $index')
-                    // );
-                  },
-                ),
-              );
-            },
+          Padding(
+            padding: const EdgeInsets.only(bottom: 73),
+            child: DraggableScrollableSheet(
+              initialChildSize: 0.5,
+              minChildSize: 0.15,
+              expand: true,
+              builder: (context, controller) => Review(treat, controller),
+            ),
           ),
           DraggableScrollableSheet(
-            initialChildSize: 0.5,
-            minChildSize: 0.2,
-            // maxChildSize: 1.0,
+            initialChildSize: 0.25,
+            minChildSize: 0.12,
             expand: true,
-            builder: (context, controller) => ConsultReview(consult, controller),
+            builder: (context, controller) => Review(consult, controller),
           ),
         ],
       ),
