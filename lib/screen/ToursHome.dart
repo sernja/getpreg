@@ -2,20 +2,91 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:getpreg/screen/Tours2.dart';
 import 'package:getpreg/source/Data.dart';
+import 'package:getpreg/widgets/SortsAndFilter.dart';
 import 'package:intl/intl.dart';
 
-import 'PlaceAnEdu.dart';
+import '../widgets/PlaceAnEdu.dart';
+import 'TestLinkScreen.dart';
 
-class ListTours extends StatelessWidget {
-  List items = Data().user;
+class ToursHome extends StatelessWidget {
+  final List items = Data().user;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return buildlist(index);
-      },
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(130.0),
+        child: Stack(
+          children: [
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 40, left: 15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset('assets/images/sidemenu.png'),
+                        SizedBox(width: 10),
+                        Text(
+                          'เลือกแพทย์ที่คุณต้องการ',
+                          style: TextStyle(
+                            fontFamily: 'FC Minimal',
+                            fontSize: 30,
+                            color: const Color(0xff111111),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        buildTextFormField(),
+                        GestureDetector(
+                          onTap: () => showModalBottomSheet(
+                            isScrollControlled: true,
+                            context: context,
+                            builder: (context) => SortsAndFilter(),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 7, top: 10),
+                            child: Image.asset(
+                              'assets/images/levels.png',
+                              width: 23,
+                              height: 23,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TestLinkScreen()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 7, top: 10),
+                            child: Image.asset(
+                              'assets/images/place.png',
+                              color: const Color(0xff727272),
+                              width: 23,
+                              height: 23,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return buildlist(index);
+        },
+      ),
     );
   }
 
@@ -27,6 +98,38 @@ class ListTours extends StatelessWidget {
       university: items[index]["university"],
       review: items[index]["review"],
       star: items[index]["star"].toDouble(),
+    );
+  }
+
+  
+  Widget buildTextFormField() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Container(
+        width: 320.0,
+        decoration: BoxDecoration(
+          color: const Color(0xFFFFFFFF),
+          borderRadius: new BorderRadius.all(
+            new Radius.circular(20),
+          ),
+          // border: Border.all(color: Colors.black),
+        ),
+        child: TextFormField(
+            style:
+                TextStyle(fontWeight: FontWeight.normal, color: Colors.white),
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.all(14),
+              hintText: 'Search here',
+              prefixIcon: Icon(Icons.search),
+              border: InputBorder.none,
+              // enabledBorder: InputBorder.none,
+              // focusedBorder: InputBorder.none,
+              // contentPadding:
+              //     new EdgeInsets.symmetric(vertical: 1.0, horizontal: 20.0),
+              // border:
+              //     OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+            )),
+      ),
     );
   }
 }

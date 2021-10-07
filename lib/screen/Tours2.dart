@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:getpreg/source/Data.dart';
 import 'package:getpreg/widgets/PlaceAnEdu.dart';
+import 'package:http/http.dart';
+import 'package:web3dart/web3dart.dart';
 import '../model/SplitReviews.dart';
 import 'Splesh13.dart';
 
@@ -8,6 +10,10 @@ class Tours2 extends StatelessWidget {
   // final List items = Data()
   @override
   Widget build(BuildContext context) {
+    // Client httpClient;
+    // Web3Client ethClient;
+    // final myAddress = "0xf8D4f9ae538eE849f06414C42eeB9C2ab4394043";
+    
     String name = 'นพ.a';
     String ability_1 = 'IUI';
     String ability_2 = 'ICSI';
