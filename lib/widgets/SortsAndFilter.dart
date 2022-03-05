@@ -23,10 +23,15 @@ class _SortsAndFilterState extends State<SortsAndFilter> {
         Row(
           children: [
             SizedBox(width: 15),
-            Image.asset(
-              'assets/images/letter-x.png',
-              width: 14,
-              height: 14,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Image.asset(
+                'assets/images/letter-x.png',
+                width: 14,
+                height: 14,
+              ),
             ),
             SizedBox(width: 110),
             Text(

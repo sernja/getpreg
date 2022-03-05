@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 import 'package:web3dart/web3dart.dart';
 
 class ToursProfile extends StatefulWidget {
@@ -13,10 +13,11 @@ class _ToursProfileState extends State<ToursProfile> {
   Client httpClient;
   Web3Client ethClient;
   final String myAddress = "0xf8D4f9ae538eE849f06414C42eeB9C2ab4394043";
+  final String docAddress = '0x1f03580F27a314A45365294B6BDE9b6569a67Dc6';
   bool dataBalance = false;
   int myAmount;
   String txHash;
-  var myData;
+  int myData;
 
   @override
   void initState() {
@@ -30,7 +31,7 @@ class _ToursProfileState extends State<ToursProfile> {
 
   Future<DeployedContract> loadContract() async {
     String abi = await rootBundle.loadString('assets/abi.json');
-    String contractAddress = '0x147bFBC3912feBbd7EeF0aaC6A3b7314F73285aa';
+    String contractAddress = '0x89ee73f1029c65ebBE5341B577Dadd54Cf2Ea830';
 
     final contract = DeployedContract(ContractAbi.fromJson(abi, 'GetpregCoin'),
         EthereumAddress.fromHex(contractAddress));
@@ -47,9 +48,9 @@ class _ToursProfileState extends State<ToursProfile> {
   }
 
   Future<void> getBalance(String targetAddress) async {
-    // EthereumAddress address = EthereumAddress.fromHex(targetAddress);
-    List<dynamic> result = await query('getBalance', []);
-    myData = result[0];
+    EthereumAddress address = EthereumAddress.fromHex(targetAddress);
+    List<dynamic> result = await query('balanceOf', [address]);
+    myData = int.parse(result[0].toString());
     dataBalance = true;
     setState(() {});
   }
@@ -83,9 +84,11 @@ class _ToursProfileState extends State<ToursProfile> {
   }
 
   Future<String> withdrawCoin() async {
-    var bigAmount = BigInt.from(myAmount);
+    var bigAmount = BigInt.from(1); //token amonut
 
-    var response = await submit('withdrawBalance', [bigAmount]);
+    EthereumAddress address = EthereumAddress.fromHex(docAddress);
+
+    var response = await submit('transfer', [address, bigAmount]);
 
     txHash = response;
     setState(() {});
@@ -145,7 +148,7 @@ class _ToursProfileState extends State<ToursProfile> {
                   ),
                   dataBalance
                       ? Text(
-                          '$myData',
+                          '${NumberFormat('#,##0.00').format(myData / 100)}',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -154,20 +157,6 @@ class _ToursProfileState extends State<ToursProfile> {
                       : CircularProgressIndicator(),
                 ],
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 320, left: 30),
-            child: FlutterSlider(
-              min: 0,
-              max: 100,
-              values: [0],
-              jump: true,
-              onDragging: (handlerIndex, lowerValue, upperValue) {
-                setState(() {
-                  myAmount = lowerValue.round();
-                });
-              },
             ),
           ),
           Padding(
@@ -180,16 +169,10 @@ class _ToursProfileState extends State<ToursProfile> {
                   label: Text('refresh'),
                 ),
                 SizedBox(width: 15),
-                ElevatedButton.icon(
-                  onPressed: () => sendCoin(),
-                  icon: Icon(Icons.call_made_outlined),
-                  label: Text('Deposit'),
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
-                ),
                 SizedBox(width: 15),
                 ElevatedButton.icon(
                   onPressed: () => withdrawCoin(),
-                  icon: Icon(Icons.call_received_outlined),
+                  icon: Icon(Icons.call_made_outlined),
                   label: Text('withdraw'),
                   style: ElevatedButton.styleFrom(primary: Colors.red),
                 ),

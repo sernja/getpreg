@@ -59,10 +59,6 @@ class Signin extends StatelessWidget {
                   fillColor: const Color(0xFFFFFFFF).withOpacity(0),
                   hintText: 'Email',
                   contentPadding: const EdgeInsets.all(15),
-                  // focusedBorder: OutlineInputBorder(
-                  //   borderSide: BorderSide(color: Colors.white),
-                  //   borderRadius: BorderRadius.circular(5),
-                  // ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black54),
                     borderRadius: BorderRadius.circular(5),
@@ -80,10 +76,6 @@ class Signin extends StatelessWidget {
                   fillColor: const Color(0xFFFFFFFF).withOpacity(0),
                   hintText: 'รหัสผ่าน',
                   contentPadding: const EdgeInsets.all(15),
-                  // focusedBorder: OutlineInputBorder(
-                  //   borderSide: BorderSide(color: Colors.black),
-                  //   borderRadius: BorderRadius.circular(5),
-                  // ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black54),
                     borderRadius: BorderRadius.circular(5),
@@ -148,14 +140,10 @@ class Signin extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              //navigator to login with facebook
                               builder: (context) => TestLinkScreen()));
                     },
                     child: Image.asset(
                       'assets/images/facebook.png',
-                      // height: 55,
-                      // width: 55,
-                      // fit: BoxFit.fill,
                     ),
                   ),
                   SizedBox(

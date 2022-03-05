@@ -6,6 +6,7 @@ import 'package:getpreg/widgets/SortsAndFilter.dart';
 import 'package:intl/intl.dart';
 
 import '../widgets/PlaceAnEdu.dart';
+import 'Splesh17.dart';
 import 'TestLinkScreen.dart';
 
 class ToursHome extends StatelessWidget {
@@ -58,9 +59,10 @@ class ToursHome extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TestLinkScreen()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Splesh17()),
+                            );
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(left: 7, top: 10),
@@ -101,7 +103,6 @@ class ToursHome extends StatelessWidget {
     );
   }
 
-  
   Widget buildTextFormField() {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
@@ -116,7 +117,7 @@ class ToursHome extends StatelessWidget {
         ),
         child: TextFormField(
             style:
-                TextStyle(fontWeight: FontWeight.normal, color: Colors.white),
+                TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
             decoration: InputDecoration(
               contentPadding: EdgeInsets.all(14),
               hintText: 'Search here',
